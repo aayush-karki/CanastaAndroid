@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/general_fragmentStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.MainMenuFragment">
+    tools:context=".controller.MainMenuFragment"
+    android:background="@color/app_dark_primary">
 
 
     <TextView
@@ -28,37 +28,46 @@
 
     <Button
         android:id="@+id/newGameBtn"
-        style="@style/generalBtn_Style_light"
         android:text="@string/newGameBtnTxt"
+        android:textColor="@color/app_text_primary_light"
+        android:backgroundTint="@color/app_primary_accent"
+        android:layout_width="182dp"
+        android:layout_height="61dp"
         app:layout_constraintBottom_toTopOf="@+id/loadBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_first"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5"/>
 
     <Button
         android:id="@+id/loadBtn"
-        style="@style/generalBtn_Style_light"
         android:text="@string/loadBtnStr"
         app:layout_constraintBottom_toTopOf="@+id/exitBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newGameBtn"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5"
+        android:textColor="@color/app_text_primary_light"
+        android:layout_width="182dp"
+        android:layout_height="61dp"
+        android:backgroundTint="@color/app_primary_accent" />
 
 
     <Button
         android:id="@+id/exitBtn"
-        style="@style/generalBtn_Style_light"
         android:text="@string/exitBtnTxt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loadBtn"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5"
+        android:textColor="@color/app_text_primary_light"
+        android:layout_width="182dp"
+        android:layout_height="61dp"
+        android:backgroundTint="@color/app_primary_accent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

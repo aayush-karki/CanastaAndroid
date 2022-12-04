@@ -19,7 +19,6 @@ public class FilenameListAdaptor extends
     private final ArrayList<String> mFilenameList;
     final private LayoutInflater mInflater;
 
-
     /**
      * Constructor for the Filename List Adaptor
      * @param aContext Context, context of where this adaptor is created
@@ -94,7 +93,7 @@ public class FilenameListAdaptor extends
          */
         public FileNameViewHolder(View aItemView, FilenameListAdaptor aAdapter) {
             super(aItemView);
-            fileNameItemView = aItemView.findViewById(R.id.filename);
+            fileNameItemView = aItemView.findViewById(R.id.filenameItem);
             this.mAdapter = aAdapter;
 
             itemView.setOnClickListener(this);

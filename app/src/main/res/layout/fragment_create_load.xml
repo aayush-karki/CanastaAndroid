@@ -3,47 +3,90 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
-    style="@style/general_fragmentStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.CreateLoadFragment">
+    tools:context=".controller.CreateLoadFragment"
+    android:background="@color/app_dark_primary">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/textView"
         android:layout_marginTop="64dp"
-        style="@style/createLoadFrag_title_textStyle"
         android:text="@string/loadTitleStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textStyle=""/>
+        android:textStyle=""
+        android:background="@color/app_text_primary_dark"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/app_text_primary_light"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/userInputTxtFeild"
         android:inputType="textPersonName"
         android:hint="@string/userFilenameHintStr"
-        style="@style/createLoadFrag_general_textStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:textSize="24sp"
+        android:textColor="@color/app_text_primary_light"
+        android:textColorHint="@color/app_text_primary_light"
+        android:layout_width="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints="" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/filenameRecyclerView"
-        style="@style/createLoadFrag_recylclerView_layoutStyle"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/createNewBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"  />
+        app:layout_constraintTop_toBottomOf="@+id/userInputTxtFeild"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_marginBottom="64dp"
-        android:text="@string/openBtnStr"
-        style="@style/createLoadFrag_general_bntStyle"
+        android:id="@+id/createNewBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/app_text_primary_dark"
+        android:text="@string/createBtnStr"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/cancelBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/app_text_primary_dark"
+        android:text="@string/cancelBtnStr"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

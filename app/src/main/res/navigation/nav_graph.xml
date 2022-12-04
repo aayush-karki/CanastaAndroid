@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/RoundFragment">
+    app:startDestination="@id/MainMenuStartFragment">
 
     <fragment
         android:id="@+id/MainMenuStartFragment"
@@ -15,16 +15,6 @@
             app:destination="@id/CreateLoadFragment" />
     </fragment>
     <fragment
-        android:id="@+id/RoundFragment"
-        android:name="edu.ramapo.akarki.canasta.controller.RoundFragment"
-        android:label="@string/roundFragLabel"
-        tools:layout="@layout/fragment_round">
-
-        <action
-            android:id="@+id/action_RoundFragment_to_MainMenuStartFragment"
-            app:destination="@id/MainMenuStartFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/CreateLoadFragment"
         android:name="edu.ramapo.akarki.canasta.controller.CreateLoadFragment"
         android:label="@string/createLoadFragLabel"
@@ -33,5 +23,27 @@
         <action
             android:id="@+id/action_CreateLoadFragment_to_RoundFragment"
             app:destination="@id/RoundFragment" />
+            <argument
+                android:name="aNewGamePressed"
+                app:argType="boolean" />
+        <action
+            android:id="@+id/action_CreateLoadFragment_to_MainMenuStartFragment"
+            app:destination="@id/MainMenuStartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RoundFragment"
+        android:name="edu.ramapo.akarki.canasta.controller.RoundFragment"
+        android:label="@string/roundFragLabel"
+        tools:layout="@layout/fragment_round">
+
+        <action
+            android:id="@+id/action_RoundFragment_to_MainMenuStartFragment"
+            app:destination="@id/MainMenuStartFragment" />
+        <argument
+            android:name="aNewGamePressed"
+            app:argType="boolean" />
+        <argument
+            android:name="aFileName"
+            app:argType="string" />
     </fragment>
 </navigation>

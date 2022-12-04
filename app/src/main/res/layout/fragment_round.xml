@@ -2,126 +2,505 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/general_fragmentStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_dark_primary"
     tools:context=".controller.RoundFragment">
 
-    <!-- ===================== top row: Round Info ====================== -->
+    <!-- ===================== Round Info ====================== -->
 
     <View
         android:id="@+id/topRowBg"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/app_text_primary_dark"
-        app:layout_constraintBottom_toTopOf="@id/roundBtmGuide"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/compHandTopGuide"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/RoundLabelTxt"
-        android:layout_width="82dp"
+    <LinearLayout
+        android:id="@+id/roundNumGroup"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:labelFor="@id/RoundNumTxt"
-        android:text="@string/roundLabelStr"
-        style="@style/roundFrag_titleText_style"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
         app:layout_constraintStart_toStartOf="@+id/leftGuide"
-        app:layout_constraintTop_toTopOf="@+id/topGuide" />
+        app:layout_constraintTop_toTopOf="@+id/topGuide">
 
-    <TextView
-        android:id="@+id/RoundNumTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="@string/roundNumStr"
-        style="@style/roundFrag_titleText_style"
-        app:layout_constraintBaseline_toBaselineOf="@+id/RoundLabelTxt"
-        app:layout_constraintStart_toEndOf="@+id/RoundLabelTxt" />
 
-    <TextView
-        android:id="@+id/CurrPlayerLabelTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        style="@style/roundFrag_titleText_style"
-        android:text="@string/currPlayerLabelStr"
-        android:labelFor="@id/computerIcon"
-        app:layout_constraintBaseline_toBaselineOf="@+id/RoundNumTxt"
-        app:layout_constraintEnd_toStartOf="@+id/playerGuide" />
+        <TextView
+            android:id="@+id/RoundLabelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/RoundNumTxt"
+            android:text="@string/roundLabelStr"
+            android:textColor="@color/app_primary_accent"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/RoundNumTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:text="@string/roundNumStr"
+            android:textColor="@color/app_primary_accent"
+            android:textSize="26sp" />
+
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/computerIcon"
-        android:src="@drawable/ic_baseline_computer_24"
+        android:layout_width="54dp"
+
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/player_background_accent"
         android:contentDescription="@string/computerIconDescriptionStr"
-        android:visibility="visible"
-        style="@style/roundFrag_playerIcon_layoutStyles"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-        app:layout_constraintStart_toStartOf="@+id/playerGuide"
-        app:layout_constraintTop_toTopOf="@+id/topGuide"/>
-
-    <ImageView
-        android:id="@+id/humanIcon"
-        android:src="@drawable/ic_baseline_person_24"
-        android:contentDescription="@string/humanIconDescriptionStr"
-        android:visibility="gone"
-        style="@style/roundFrag_playerIcon_layoutStyles"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-        app:layout_constraintStart_toStartOf="@+id/playerGuide"
-        app:layout_constraintTop_toTopOf="@+id/topGuide" />
-
-    <!-- ===================== second row: computer's detail ====================== -->
-
-    <TextView
-        android:id="@+id/computerLabelTxt"
-        android:text="@string/computerLabelStr"
-        style="@style/roundFrag_playerLabel_textStyle"
+        android:padding="2dp"
+        android:src="@drawable/ic_computer_accent"
+        app:layout_constraintEnd_toStartOf="@+id/roundNumGroup"
         app:layout_constraintStart_toStartOf="@+id/leftGuide"
-        app:layout_constraintTop_toBottomOf="@+id/RoundLabelTxt" />
-
-    <TextView
-        android:id="@+id/CompScoreLabelTxt"
-        android:text="@string/compScoreLabelStr"
-        style="@style/roundFrag_general_textStyle"
-        app:layout_constraintBaseline_toBaselineOf="@+id/computerLabelTxt"
-        app:layout_constraintEnd_toStartOf="@+id/playerGuide" />
+        app:layout_constraintTop_toTopOf="@+id/topGuide" />
 
     <TextView
         android:id="@+id/compScoreNumTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/compScoreNumStr"
-        style="@style/roundFrag_general_textStyle"
-        app:layout_constraintBaseline_toBaselineOf="@+id/CompScoreLabelTxt"
-        app:layout_constraintStart_toStartOf="@+id/playerGuide" />
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/roundNumGroup"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/computerIcon" />
 
-    <!-- ===================== third row: computer hand details ====================== -->
+    <ImageView
+        android:id="@+id/humanIcon"
+        android:layout_width="54dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/humanIconDescriptionStr"
+        android:padding="2dp"
+        android:src="@drawable/ic_human_accent"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toEndOf="@+id/roundNumGroup"
+        app:layout_constraintTop_toTopOf="@+id/topGuide" />
+
+    <TextView
+        android:id="@+id/humanScoreNumTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/compScoreNumStr"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintStart_toEndOf="@+id/roundNumGroup"
+        app:layout_constraintTop_toBottomOf="@+id/humanIcon" />
+
+
+    <!-- ===================== computer's detail ====================== -->
+
+    <!-- ===================== computer hand ====================== -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/compHandCardRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/app_light_primary"
+        app:layout_constraintBottom_toTopOf="@+id/compProfile"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/computerHandlabelTxt"
+        app:layout_constraintVertical_bias="1.0" />
+
     <TextView
         android:id="@+id/computerHandlabelTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/app_primary_accent_light"
+        android:labelFor="@id/compHandCardRecyclerView"
         android:text="@string/handLabel"
-        style="@style/roundFrag_general_textStyle"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
         app:layout_constraintStart_toStartOf="@+id/leftGuide"
-        app:layout_constraintTop_toBottomOf="@+id/computerLabelTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/topRowBg" />
 
-    <!-- ===================== fourth row: computer melds ====================== -->
+    <!-- ===================== computer profile ====================== -->
+
+    <ImageView
+        android:id="@+id/compProfile"
+        android:layout_width="77dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="108dp"
+        android:src="@drawable/ic_computer_light"
+        android:contentDescription="@string/computerIconDescriptionStr"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toTopOf="@+id/compHandTopGuide"
+        app:tint="@color/app_primary_accent"/>
+
+    <!-- ===================== computer melds ====================== -->
+
     <TextView
-        android:id="@+id/computerMeldsabelTxt"
+        android:id="@+id/compMeldslabelTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/app_primary_accent_light"
+        android:labelFor="@id/compMeldsRecyclerView"
         android:text="@string/meldsLabel"
-        style="@style/roundFrag_general_textStyle"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintStart_toEndOf="@+id/compProfile"
+        app:layout_constraintTop_toTopOf="@+id/compProfile" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/compMeldsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/app_light_primary"
+        app:layout_constraintBottom_toBottomOf="@+id/compProfile"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/compProfile"
+        app:layout_constraintTop_toBottomOf="@+id/compMeldslabelTxt" />
+
+    <!-- ===================== computer melds detail ====================== -->
+
+    <LinearLayout
+        android:id="@+id/compMeldDetailTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/app_primary_accent_light"
+        android:gravity="center"
+        android:labelFor="@id/compMeldDetailRecyclerView"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
         app:layout_constraintStart_toStartOf="@+id/leftGuide"
-        app:layout_constraintTop_toBottomOf="@+id/computerHandlabelTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/compProfile">
 
-    <!-- ===================== fifth row: computer melds ====================== -->
+        <TextView
+            android:id="@+id/compMeldDetaillabelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meldListLabel"
+            android:textAllCaps="true"
+            android:textColor="@color/app_text_primary_light"
+            android:textSize="12sp" />
 
+        <TextView
+            android:id="@+id/compMeldDetailRankTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meldOfLabel"
+            android:textAllCaps="true"
+            android:textColor="@color/app_text_primary_light"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/compMeldDetailRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="59dp"
+        android:background="@color/app_light_primary"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/compMeldDetailTxt" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/meldDetailGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="compMeldDetailTxt,compMeldDetailRecyclerView" />
+
+
+    <!-- ===================== discard's pile ====================== -->
+
+
+    <!-- ===================== stock's pile ====================== -->
+
+
+    <!-- ===================== human melds detail ====================== -->
+
+    <!-- ===================== Human's detail ====================== -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/discardPileRecyclerView"
+        android:layout_width="71dp"
+        android:layout_height="67dp"
+        android:background="@color/app_light_primary"
+        app:layout_constraintBottom_toBottomOf="@+id/messageTxt"
+        app:layout_constraintEnd_toEndOf="@+id/discardPilelabelTxt"
+        app:layout_constraintStart_toStartOf="@+id/discardPilelabelTxt"
+        app:layout_constraintTop_toTopOf="@+id/messageTxt" />
+
+    <TextView
+        android:id="@+id/discardPilelabelTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/app_primary_accent_light"
+        android:labelFor="@id/discardPileRecyclerView"
+        android:text="@string/discardiPileStr"
+        android:textAllCaps="true"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/discardPileRecyclerView" />
+
+    <TextView
+        android:id="@+id/messageTxt"
+        android:layout_width="172dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        app:layout_constraintBottom_toTopOf="@+id/humanMeldDetailTxt"
+        app:layout_constraintEnd_toStartOf="@+id/stockPileRecyclerView"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toEndOf="@+id/discardPileRecyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/compMeldDetailRecyclerView"
+        app:layout_constraintVertical_bias="0.527" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/stockPileRecyclerView"
+        android:layout_width="71dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/app_light_primary"
+        app:layout_constraintBottom_toBottomOf="@+id/discardPileRecyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/stockPilelabelTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/stockPilelabelTxt"
+        app:layout_constraintTop_toTopOf="@+id/messageTxt" />
+
+    <TextView
+        android:id="@+id/stockPilelabelTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="@color/app_primary_accent_light"
+        android:labelFor="@id/stockPileRecyclerView"
+        android:text="@string/stockPileStr"
+        android:textAllCaps="true"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/discardPilelabelTxt"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide" />
+
+    <LinearLayout
+        android:id="@+id/humanMeldDetailTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/app_primary_accent_light"
+        android:gravity="center"
+        android:labelFor="@id/humanMeldDetailRecyclerView"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/humanMeldDetailRecyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide">
+
+        <TextView
+            android:id="@+id/humanMeldDetaillabelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meldListLabel"
+            android:textAllCaps="true"
+            android:textColor="@color/app_text_primary_light"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/humanMeldDetailRankTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meldOfLabel"
+            android:textAllCaps="true"
+            android:textColor="@color/app_text_primary_light"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/humanMeldDetailRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="59dp"
+        android:background="@color/app_light_primary"
+        app:layout_constraintBottom_toTopOf="@+id/humanProfile"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/humanDetailGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="humanMeldDetailTxt,humanMeldDetailRecyclerView" />
+
+
+    <!-- ===================== Human's melds ====================== -->
+    <TextView
+        android:id="@+id/humanMeldslabelTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/app_primary_accent_light"
+        android:labelFor="@id/humanMeldsRecyclerView"
+        android:text="@string/meldsLabel"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/humanProfile"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toTopOf="@+id/humanProfile" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/humanMeldsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/app_light_primary"
+        app:layout_constraintBottom_toBottomOf="@+id/humanProfile"
+        app:layout_constraintEnd_toStartOf="@+id/humanProfile"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/humanMeldslabelTxt" />
+
+    <!-- ===================== human profile ====================== -->
+
+    <ImageView
+        android:id="@+id/humanProfile"
+        android:layout_width="77dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="108dp"
+        android:src="@drawable/ic_human_light"
+        android:contentDescription="@string/computerIconDescriptionStr"
+        app:layout_constraintBottom_toTopOf="@+id/btnTopGuide"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide" />
+
+    <!-- ===================== Human hand ====================== -->
+
+    <TextView
+        android:id="@+id/humanHandlabelTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/app_primary_accent_light"
+        android:labelFor="@id/humanHandCardRecyclerView"
+        android:text="@string/handLabel"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/humanProfile" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/humanHandCardRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/app_light_primary"
+        app:layout_constraintBottom_toTopOf="@+id/btnTopGuide"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/humanHandlabelTxt"
+        app:layout_constraintVertical_bias="0.0" />
 
     <!-- ===================== guidelines ====================== -->
 
+    <Button
+        android:id="@+id/discardBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="@string/discardBtnStr"
+        android:textColor="@color/app_text_primary_light"
+        app:layout_constraintBottom_toTopOf="@+id/roundBtmGuide"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/takeOutBtn"
+        app:layout_constraintTop_toTopOf="@+id/btnTopGuide"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/takeOutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="@string/takeoutBtnStr"
+        android:textColor="@color/app_text_primary_light"
+        app:layout_constraintBottom_toBottomOf="@+id/discardBtn"
+        app:layout_constraintEnd_toStartOf="@+id/meldBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toTopOf="@+id/discardBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/meldBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="@string/meldBtnStr"
+        android:textColor="@color/app_text_primary_light"
+        app:layout_constraintBottom_toBottomOf="@+id/discardBtn"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toTopOf="@+id/discardBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/humanButtonGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="discardBtn,takeOutBtn,meldBtn" />
+
+    <Button
+        android:id="@+id/continueBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="@string/continueBtnStr"
+        android:textColor="@color/app_text_primary_light"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/roundBtmGuide"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toTopOf="@+id/btnTopGuide"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/btmRowBg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/app_text_primary_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/humanHandCardRecyclerView"
+        app:layout_constraintVertical_bias="0.0" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftGuide"
-        android:layout_width="379dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/rightGuide"
-        android:layout_width="379dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="16dp" />
@@ -131,53 +510,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp" />
+        app:layout_constraintGuide_begin="0dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/playerGuide"
+        android:id="@+id/compHandTopGuide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="70dp" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="83dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/btnTopGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="78dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/roundBtmGuide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="57dp" />
-
-
-<!--
-    <TextView
-        android:id="@+id/computerScore"
-        style="@style/roundFrag_general_textStyle"
-        android:text="0000"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="223dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0000"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="255dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_computer_24"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="231dp" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_person_24"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="255dp" />-->
+        app:layout_constraintGuide_end="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

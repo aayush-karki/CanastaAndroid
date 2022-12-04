@@ -13,7 +13,7 @@
     <string name="exitBtnTxt">Exit</string>
 
     <!-- Strings used in the create and load fragment -->
-    <string name="openBtnStr">Create New Game</string>
+    <string name="createBtnStr">Create New Game</string>
     <string name="userFilenameHintStr">Enter a filename</string>
     <string name="loadTitleStr">Select a file to open</string>
     <string name="createTitleStr">Enter a new filename</string>
@@ -30,15 +30,22 @@
     <string name="compScoreLabelStr">Computer Score: </string>
     <string name="compScoreNumStr">0</string>
 
-    <string name="handLabel">Hand:</string>
-    <string name="meldsLabel">Melds:</string>
+    <string name="handLabel">Hand</string>
+    <string name="meldsLabel">Melds</string>
     <string name="meldListLabel">Meld of </string>
-    <string name="meldOfLabel">A:</string>
+    <string name="meldOfLabel">A</string>
 
     <!-- Strings used in the coin toss dialog box -->
     <string name="coinTossTxt">Coin Toss</string>
     <string name="coinTossPromptTxt">Guess correctly to go first:</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cancelBtnStr">Cancel</string>
+    <string name="discardiPileStr">Discard Pile</string>
+    <string name="stockPileStr">Stock Pile</string>
+    <string name="discardBtnStr">Discard</string>
+    <string name="takeoutBtnStr">takeout</string>
+    <string name="meldBtnStr">Meld</string>
+    <string name="continueBtnStr">Continue</string>
 
 </resources>
