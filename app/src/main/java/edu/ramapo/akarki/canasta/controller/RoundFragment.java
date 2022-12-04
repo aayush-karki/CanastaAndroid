@@ -7,14 +7,11 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import edu.ramapo.akarki.canasta.R;
-import edu.ramapo.akarki.canasta.databinding.FragmentFirstBinding;
 
-public class FirstFragment extends Fragment {
+public class RoundFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
 
     @Override
     public View onCreateView(
@@ -22,27 +19,24 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
-        return binding.getRoot();
-
+        return inflater.inflate(R.layout.fragment_round, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
+        /*binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                NavHostFragment.findNavController(CreateLoadFragment.this)
+                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
-        });
+        });*/
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
     }
 
 }

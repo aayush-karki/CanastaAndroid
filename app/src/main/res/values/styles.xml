@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===================== text styles ====================== -->
+
+    <style name="textColor_style">
+        <item name="android:textColor">@color/app_text_primary_light</item>
+    </style>
+
+    <!-- ===================== Button styles ====================== -->
+
+    <style name="generalBtn_style">
+        <item name="android:layout_width">182dp</item>
+        <item name="android:layout_height">61dp</item>
+        <item name="android:backgroundTint">@color/app_primary_accent</item>
+        <item name="android:textColor">@color/app_text_primary_dark</item>
+    </style>
+
+    <style name="generalBtn_Style_Dark" parent="generalBtn_style">
+        <item name="android:textColor">@color/app_text_primary_dark</item>
+    </style>
+
+    <style name="generalBtn_Style_light" parent="generalBtn_style">
+        <item name="android:textColor">@color/app_text_primary_light</item>
+    </style>
+
+    <!-- ===================== Fragment styles ====================== -->
+    <style name="general_fragmentStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/app_dark_primary</item>
+    </style>
+
+    <!--     ===================== Round Fragment styles ====================== -->
+
+    <style name="roundFrag_titleText_style" parent="textColor_style">
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="roundFrag_general_layoutStyle"  parent="textColor_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="roundFrag_general_textStyle"  parent="roundFrag_general_layoutStyle">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="roundFrag_playerLabel_textStyle" parent="roundFrag_general_textStyle">
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="roundFrag_playerIcon_layoutStyles">
+        <item name="android:layout_width">54dp</item>
+        <item name="android:layout_height">35dp</item>
+    </style>
+
+    <!--     ===================== create load  Fragment styles ====================== -->
+
+    <style name="createLoadFrag_general_layoutStyle" parent="textColor_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="createLoadFrag_title_layoutStyle" parent="createLoadFrag_general_layoutStyle">
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:layout_marginTop">64dp</item>
+    </style>
+
+    <style name="createLoadFrag_title_textStyle" parent="createLoadFrag_title_layoutStyle">
+        <item name="android:background">@color/app_text_primary_dark</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="createLoadFrag_general_textStyle" parent="createLoadFrag_general_layoutStyle">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="createLoadFrag_general_bntStyle" parent="createLoadFrag_general_textStyle">
+        <item name="android:backgroundTint">@color/app_text_primary_dark</item>
+    </style>
+
+    <style name="fileName_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="createLoadFrag_recylclerView_layoutStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+
+</resources>

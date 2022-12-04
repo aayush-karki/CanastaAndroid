@@ -3,26 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/RoundFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="edu.ramapo.akarki.canasta.controller.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/MainMenuStartFragment"
+        android:name="edu.ramapo.akarki.canasta.controller.MainMenuFragment"
+        android:label="@string/mainMenuFragLabel"
+        tools:layout="@layout/fragment_main_menu">
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_MainMenuStartFragment_to_CreateLoadFragment"
+            app:destination="@id/CreateLoadFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="edu.ramapo.akarki.canasta.controller.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/RoundFragment"
+        android:name="edu.ramapo.akarki.canasta.controller.RoundFragment"
+        android:label="@string/roundFragLabel"
+        tools:layout="@layout/fragment_round">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_RoundFragment_to_MainMenuStartFragment"
+            app:destination="@id/MainMenuStartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CreateLoadFragment"
+        android:name="edu.ramapo.akarki.canasta.controller.CreateLoadFragment"
+        android:label="@string/createLoadFragLabel"
+        tools:layout="@layout/fragment_create_load">
+
+        <action
+            android:id="@+id/action_CreateLoadFragment_to_RoundFragment"
+            app:destination="@id/RoundFragment" />
     </fragment>
 </navigation>

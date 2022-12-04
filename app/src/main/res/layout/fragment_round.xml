@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/general_fragmentStyle"
+    tools:context=".controller.RoundFragment">
+
+    <!-- ===================== top row: Round Info ====================== -->
+
+    <View
+        android:id="@+id/topRowBg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/app_text_primary_dark"
+        app:layout_constraintBottom_toTopOf="@id/roundBtmGuide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/RoundLabelTxt"
+        android:layout_width="82dp"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/RoundNumTxt"
+        android:text="@string/roundLabelStr"
+        style="@style/roundFrag_titleText_style"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toTopOf="@+id/topGuide" />
+
+    <TextView
+        android:id="@+id/RoundNumTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/roundNumStr"
+        style="@style/roundFrag_titleText_style"
+        app:layout_constraintBaseline_toBaselineOf="@+id/RoundLabelTxt"
+        app:layout_constraintStart_toEndOf="@+id/RoundLabelTxt" />
+
+    <TextView
+        android:id="@+id/CurrPlayerLabelTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        style="@style/roundFrag_titleText_style"
+        android:text="@string/currPlayerLabelStr"
+        android:labelFor="@id/computerIcon"
+        app:layout_constraintBaseline_toBaselineOf="@+id/RoundNumTxt"
+        app:layout_constraintEnd_toStartOf="@+id/playerGuide" />
+
+    <ImageView
+        android:id="@+id/computerIcon"
+        android:src="@drawable/ic_baseline_computer_24"
+        android:contentDescription="@string/computerIconDescriptionStr"
+        android:visibility="visible"
+        style="@style/roundFrag_playerIcon_layoutStyles"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintStart_toStartOf="@+id/playerGuide"
+        app:layout_constraintTop_toTopOf="@+id/topGuide"/>
+
+    <ImageView
+        android:id="@+id/humanIcon"
+        android:src="@drawable/ic_baseline_person_24"
+        android:contentDescription="@string/humanIconDescriptionStr"
+        android:visibility="gone"
+        style="@style/roundFrag_playerIcon_layoutStyles"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintStart_toStartOf="@+id/playerGuide"
+        app:layout_constraintTop_toTopOf="@+id/topGuide" />
+
+    <!-- ===================== second row: computer's detail ====================== -->
+
+    <TextView
+        android:id="@+id/computerLabelTxt"
+        android:text="@string/computerLabelStr"
+        style="@style/roundFrag_playerLabel_textStyle"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/RoundLabelTxt" />
+
+    <TextView
+        android:id="@+id/CompScoreLabelTxt"
+        android:text="@string/compScoreLabelStr"
+        style="@style/roundFrag_general_textStyle"
+        app:layout_constraintBaseline_toBaselineOf="@+id/computerLabelTxt"
+        app:layout_constraintEnd_toStartOf="@+id/playerGuide" />
+
+    <TextView
+        android:id="@+id/compScoreNumTxt"
+        android:text="@string/compScoreNumStr"
+        style="@style/roundFrag_general_textStyle"
+        app:layout_constraintBaseline_toBaselineOf="@+id/CompScoreLabelTxt"
+        app:layout_constraintStart_toStartOf="@+id/playerGuide" />
+
+    <!-- ===================== third row: computer hand details ====================== -->
+    <TextView
+        android:id="@+id/computerHandlabelTxt"
+        android:text="@string/handLabel"
+        style="@style/roundFrag_general_textStyle"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/computerLabelTxt" />
+
+    <!-- ===================== fourth row: computer melds ====================== -->
+    <TextView
+        android:id="@+id/computerMeldsabelTxt"
+        android:text="@string/meldsLabel"
+        style="@style/roundFrag_general_textStyle"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/computerHandlabelTxt" />
+
+    <!-- ===================== fifth row: computer melds ====================== -->
+
+
+    <!-- ===================== guidelines ====================== -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftGuide"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightGuide"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/playerGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="70dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/roundBtmGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="57dp" />
+
+
+<!--
+    <TextView
+        android:id="@+id/computerScore"
+        style="@style/roundFrag_general_textStyle"
+        android:text="0000"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="223dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="255dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_computer_24"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_person_24"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="255dp" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

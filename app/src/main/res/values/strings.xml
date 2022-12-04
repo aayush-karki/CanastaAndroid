@@ -1,12 +1,44 @@
 <resources>
-    <string name="app_name">Canasta</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="appNameStr">Canasta</string>
+    <string name="actionSettings">Settings</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="mainMenuFragLabel">Main Menu</string>
+    <string name="roundFragLabel">Round </string>
+    <string name="createLoadFragLabel">Create Load</string>
+
+    <!-- Strings used in the main menu fragment -->
+    <string name="newGameBtnTxt">New Game</string>
+    <string name="loadBtnStr">Load Game</string>
+    <string name="exitBtnTxt">Exit</string>
+
+    <!-- Strings used in the create and load fragment -->
+    <string name="openBtnStr">Create New Game</string>
+    <string name="userFilenameHintStr">Enter a filename</string>
+    <string name="loadTitleStr">Select a file to open</string>
+    <string name="createTitleStr">Enter a new filename</string>
+
+    <!-- Strings used in the round fragment -->
+    <string name="roundLabelStr">Round:</string>
+    <string name="roundNumStr">1</string>
+
+    <string name="currPlayerLabelStr">Current Player: </string>
+    <string name="computerIconDescriptionStr">Icon indicating that it is currently computer\'s turn</string>
+    <string name="humanIconDescriptionStr">Icon indicating that it is currently human\'s turn</string>
+
+    <string name="computerLabelStr">Computer</string>
+    <string name="compScoreLabelStr">Computer Score: </string>
+    <string name="compScoreNumStr">0</string>
+
+    <string name="handLabel">Hand:</string>
+    <string name="meldsLabel">Melds:</string>
+    <string name="meldListLabel">Meld of </string>
+    <string name="meldOfLabel">A:</string>
+
+    <!-- Strings used in the coin toss dialog box -->
+    <string name="coinTossTxt">Coin Toss</string>
+    <string name="coinTossPromptTxt">Guess correctly to go first:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

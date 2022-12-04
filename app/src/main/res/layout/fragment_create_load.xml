@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    style="@style/general_fragmentStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.CreateLoadFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_marginTop="64dp"
+        style="@style/createLoadFrag_title_textStyle"
+        android:text="@string/loadTitleStr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle=""/>
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:inputType="textPersonName"
+        android:hint="@string/userFilenameHintStr"
+        style="@style/createLoadFrag_general_textStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/filenameRecyclerView"
+        style="@style/createLoadFrag_recylclerView_layoutStyle"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"  />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_marginBottom="64dp"
+        android:text="@string/openBtnStr"
+        style="@style/createLoadFrag_general_bntStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
