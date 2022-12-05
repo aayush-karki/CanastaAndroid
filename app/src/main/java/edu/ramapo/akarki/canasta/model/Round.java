@@ -719,7 +719,7 @@ public class Round {
      * true exit to main menu was pressed else it was not. if second of
      * the pair is true save the game was pressed else it was not
      */
-    private Pair<Boolean, Boolean> beforeTurnLogic(Integer aUserChoice) {
+    public Pair<Boolean, Boolean> beforeTurnLogic(Integer aUserChoice) {
         // at the strat of the turn, player have 5 choices:
         // 1) Save the game . enter 1
         // 2) Take a turn . enter 2

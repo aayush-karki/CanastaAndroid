@@ -444,7 +444,7 @@ public class Player {
 		// 8) Take out wild card From meld - > enter 8 < meldCardIdx > < meldIdx
 		// >
 
-		System.out.println("Taking a turn:");
+		/*System.out.println("Taking a turn:");
 		System.out.println("\t1) Ask for help - > enter 1");
 		System.out.println(
 				"\t2) Add a card in hand to meld - > enter 2 <  actualHandCardIdx  > <  meldIdx >");
@@ -459,7 +459,7 @@ public class Player {
 				"\t8) Take out wild card From meld - > enter 8 <  meldCardIdx  > < meldIdx >");
 		System.out.println();
 
-		System.out.println("Enter a corresponding number: ");
+		System.out.println("Enter a corresponding number: ");*/
 
 		// used to get the userInput
 		// object to read from console
@@ -734,6 +734,23 @@ public class Player {
 	{
 		return mPlayerHand.canAddToMeld(aCardToAdd);
 	}
+	/**
+	 * To add wild card to the specified meld
+	 *
+	 * @param aHandCardIdx, a integer. It holds the index of the the card at
+	 *                          actual hand that need to be moved
+	 * @param aMeldIdx,     a integer. It holds the index of the meld to move
+	 *                          the card to actual hand that need to be moved
+	 *
+	 * @return a pair of < Boolean, String >. < true, "" > if a meld was
+	 *         successfully made. else < false, message string >
+	 */
+	public Pair<Boolean, String> addWildCardToMeld(Integer aHandCardIdx,
+												   Integer aMeldIdx)
+	{
+		return mPlayerHand.addWildCardToMeld(aHandCardIdx, aMeldIdx);
+	}
+
 
 	/**
 	 * To make a vaild meld

@@ -28,7 +28,9 @@ public class CardListAdaptor extends
     boolean mIsHand;
     final Vector<ImageView> mSelectedImageVewList;
     final Vector<Integer> mSelectedPosList;
+    final Vector<CardListAdaptor.CardsViewHolder> mSelectedHolderList;
     Context mContext;
+    boolean mSaveHolder;
 
     /**
      * default for the Filename List Adaptor
@@ -40,7 +42,8 @@ public class CardListAdaptor extends
                            Vector<Card> aCardList,
                            boolean aisPlayer,
                            boolean aIsHuman,
-                           boolean aIsHand) {
+                           boolean aIsHand,
+                           boolean aSaveHolder) {
         mInflater = LayoutInflater.from(aContext);
         this.mCardList = aCardList;
         mIsHand = aIsHand;
@@ -49,6 +52,8 @@ public class CardListAdaptor extends
         mSelectedImageVewList = new Vector<ImageView>();
         mSelectedPosList = new Vector<Integer>();
         mContext = aContext;
+        mSaveHolder = aSaveHolder;
+        mSelectedHolderList = new Vector<CardListAdaptor.CardsViewHolder>();
 
     }
 
@@ -80,6 +85,11 @@ public class CardListAdaptor extends
             @Override
             public void onClick(View view) {
 
+                if(!mIsHand && !mSaveHolder)
+                {
+                    return;
+                }
+
                 //chekcing if the view is in the selected list deselect it
                 if (mSelectedImageVewList.contains(view)) {
                     mSelectedImageVewList.removeElement(view);
@@ -95,21 +105,16 @@ public class CardListAdaptor extends
                     return;
                 }
 
+
                 // if it is not a hand or a human clear the selected list and select it
                 if (!mIsHuman || !mIsHand) {
-                    // deselect everything
-                    for (ImageView card : mSelectedImageVewList) {
-                        card.setBackgroundColor(ContextCompat.getColor( holder.itemView.getContext(), android.R.color.transparent));
-                    }
-
-
-                    mSelectedImageVewList.clear();
-                    mSelectedPosList.clear();
+                    unSelectAll();
                 }
 
                 // hightlighting it
                 mSelectedPosList.add(holder.getLayoutPosition());
                 mSelectedImageVewList.add(  holder.cardItemView);
+                mSelectedHolderList.add(holder);
                 highlightView(holder);
 
                 // Notify the adapter that the data has changed so it can
@@ -135,12 +140,13 @@ public class CardListAdaptor extends
 
     public void unSelectAll()
     {
-        for (ImageView card : mSelectedImageVewList) {
-            card.setBackgroundColor(ContextCompat.getColor( mContext, android.R.color.transparent));
+        // deselect everything
+        for (CardListAdaptor.CardsViewHolder holder : mSelectedHolderList) {
+            unhighlightView(holder);
         }
-
         mSelectedImageVewList.clear();
         mSelectedPosList.clear();
+        mSelectedHolderList.clear();
     }
 
     @Override

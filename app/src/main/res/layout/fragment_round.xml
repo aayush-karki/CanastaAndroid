@@ -245,7 +245,7 @@
         android:labelFor="@id/compMeldDetailRecyclerView"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintStart_toEndOf="@+id/compMeldDetailReferesh"
         app:layout_constraintTop_toBottomOf="@+id/compProfile">
 
         <TextView
@@ -273,7 +273,7 @@
         android:layout_height="59dp"
         android:background="@color/app_light_primary"
         app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintStart_toEndOf="@+id/compMeldDetailReferesh"
         app:layout_constraintTop_toBottomOf="@+id/compMeldDetailTxt" />
 
     <androidx.constraintlayout.widget.Group
@@ -326,6 +326,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:background="@color/app_light_primary"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/humanMeldDetailTxt"
         app:layout_constraintEnd_toStartOf="@+id/stockPileRecyclerView"
         app:layout_constraintHorizontal_bias="0.047"
@@ -368,7 +369,7 @@
         android:labelFor="@id/humanMeldDetailRecyclerView"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/humanMeldDetailRecyclerView"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintEnd_toEndOf="@+id/humanMeldDetailRecyclerView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/leftGuide">
 
@@ -397,7 +398,7 @@
         android:layout_height="59dp"
         android:background="@color/app_light_primary"
         app:layout_constraintBottom_toTopOf="@+id/humanProfile"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintEnd_toStartOf="@+id/humanMeldDetailReferesh"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/leftGuide" />
 
@@ -649,5 +650,21 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="drawBtn,pickupBtn" />
+
+    <ImageButton
+        android:id="@+id/humanMeldDetailReferesh"
+        android:layout_width="44dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_baseline_refresh_24"
+        app:layout_constraintBottom_toTopOf="@+id/humanProfile"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide" />
+
+    <ImageButton
+        android:id="@+id/compMeldDetailReferesh"
+        android:layout_width="41dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_refresh_24"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/compProfile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

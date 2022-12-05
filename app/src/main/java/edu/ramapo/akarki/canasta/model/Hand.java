@@ -404,7 +404,7 @@ public class Hand {
      * @return a pair of < Boolean, String >. < true, "" > if a meld was
      *         successfully made. else < false, message string >
      */
-    Pair<Boolean, String> addWildCardToMeld(Integer aHandCardIdx,
+    public Pair<Boolean, String> addWildCardToMeld(Integer aHandCardIdx,
             Integer aMeldIdx)
     {
         if (!mHandCards.firstElement().get(aHandCardIdx).getCardType()
