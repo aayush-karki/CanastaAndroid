@@ -373,13 +373,12 @@ public class Computer extends Player {
 				returnChoice
 						.add(getMeldWithExtraWCReturn.getSecond().getSecond());
 
+
 				StringBuilder message = new StringBuilder(
-						"Take out the wild card at index "
-								+ getMeldWithExtraWCReturn.getSecond()
-										.getFirst().toString());
+						"Take out a wild card ");
 				message.append(
-						" from the meld at index " + getMeldWithExtraWCReturn
-								.getSecond().getSecond().toString());
+						" from the meld of " + getHand().get( getMeldWithExtraWCReturn
+								.getSecond().getSecond()).firstElement().getRank());
 				message.append("\nDo this to process the melds better");
 
 				return new Pair<Pair<Integer, Vector<Integer>>, String>(
@@ -421,9 +420,7 @@ public class Computer extends Player {
 
 	/**
 	 * Contains the logic for if we can add a card to existing melds
-	 * 
-	 
-	 * 
+	 *
 	 * @return a pair of < pair of < integer , vector of integer >, string >. If
 	 *         it is true, the inside pair contains the current submenu index
 	 *         which is 3 followed by card idx that can be melded and meldIdx
@@ -451,9 +448,8 @@ public class Computer extends Player {
 			// if meldable then return saying meld
 			Vector<Integer> returnChoice = new Vector<Integer>(
 					Arrays.asList(2, handCardIdx, canMeldResult.getFirst()));
-			String returnMessage = "Can meld the card at index "
-					+ handCardIdx.toString() + " to the meld at index "
-					+ canMeldResult.getFirst().toString();
+			String returnMessage = "Can meld the "+ getActualHand().get(handCardIdx).getRankSuit()
+					+ " to the meld of " +getHand().get(canMeldResult.getFirst()).firstElement().getRank();
 
 			return new Pair<Pair<Integer, Vector<Integer>>, String>(
 					new Pair<Integer, Vector<Integer>>(3, returnChoice),
@@ -524,7 +520,7 @@ public class Computer extends Player {
 			// calculating the indexs
 			Integer idxOfFirstCard = getActualHand().indexOf(firstRankCard);
 
-			StringBuilder allIndexStr = new StringBuilder();
+			StringBuilder allCardBuild = new StringBuilder();
 
 			// add the index of all the cards in the ranklist
 			Integer cardIndex = 0;
@@ -532,19 +528,18 @@ public class Computer extends Player {
 			{
 				Integer idxOfCurrCard = idxOfFirstCard + cardIndex;
 				returnChoice.add(idxOfCurrCard);
-				allIndexStr.append(idxOfCurrCard.toString() + " ");
-
+				allCardBuild.append(card.getRankSuit() + " ");
 				++cardIndex;
 			}
 
 			if (sameRankList.size() == 2)
 			{
-				allIndexStr.append(wildCardIdx.toString() + " ");
+				allCardBuild.append(getActualHand().get(wildCardIdx).getRankSuit() + " ");
 				returnChoice.add(wildCardIdx);
 			}
 
-			String returnMessage = "Can make a new meld with the cards at indexs--"
-					+ allIndexStr.toString();
+			String returnMessage = "Can make a new meld with the cards:"
+					+ allCardBuild.toString();
 
 			return new Pair<Pair<Integer, Vector<Integer>>, String>(
 					new Pair<Integer, Vector<Integer>>(3, returnChoice),
@@ -649,12 +644,11 @@ public class Computer extends Player {
 		Vector<Integer> returnChoice = new Vector<Integer>(
 				Arrays.asList(2, wildCardInHandIdx, largestMeldIdxToAddWC));
 		StringBuilder message = new StringBuilder(
-				"Add the the wild card at index "
-						+ wildCardInHandIdx.toString());
+				"Add the the wild card from hand");
 		message.append(
-				" to the meld at index " + largestMeldIdxToAddWC.toString());
+				" to the meld of " + getHand().get(largestMeldIdxToAddWC).firstElement().getRank());
 		message.append(
-				"\nThis allows for mamimum chances of getting a canasta");
+				"\nThis allows for maxmimum chances of getting a canasta");
 
 		return new Pair<Pair<Integer, Vector<Integer>>, String>(
 				new Pair<Integer, Vector<Integer>>(3, returnChoice),
@@ -704,8 +698,7 @@ public class Computer extends Player {
 				&& blackThreeIdx != -1)
 		{
 			returnChoice = new Vector<Integer>(Arrays.asList(3, blackThreeIdx));
-			returnMessage = "As the discard pile is frozen through the Black Three to keep it in frozen state at"
-					+ blackThreeIdx.toString();
+			returnMessage = "As the discard pile is frozen. Throw the Black Three to keep it in frozen state";
 
 			return new Pair<Pair<Integer, Vector<Integer>>, String>(
 					new Pair<Integer, Vector<Integer>>(3, returnChoice),
@@ -760,9 +753,8 @@ public class Computer extends Player {
 
 			returnChoice = new Vector<Integer>(
 					Arrays.asList(3, idxOfFirstCard));
-			returnMessage = "Discard the card at index: "
-					+ idxOfFirstCard.toString()
-					+ " as the opponent does not have a meld of this rank";
+			returnMessage = "Discard " + sameRankList.firstElement().getRankSuit() +
+					" as the opponent does not have a meld of this rank";
 
 			return new Pair<Pair<Integer, Vector<Integer>>, String>(
 					new Pair<Integer, Vector<Integer>>(3, returnChoice),
@@ -845,7 +837,7 @@ public class Computer extends Player {
 			StringBuilder message = new StringBuilder(
 					"Take out the natural card");
 			message.append(
-					" from the meld at index " + validMeldIdx.toString());
+					" from the meld of rank " + getHand().get(validMeldIdx).firstElement().getRank());
 			message.append("\nDo this to so that you can discard it");
 
 			return new Pair<Pair<Integer, Vector<Integer>>, String>(

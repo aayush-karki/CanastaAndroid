@@ -1031,6 +1031,10 @@ public class RoundFragment extends Fragment {
             public void onClick(View view) {
                 Player humanPlayer = mRoundController.mRoundModel.getHumanPlayer();
 
+                // updating the uis
+                updateHumanHandCard();
+                updateHumanMeldsUI();
+                updateStockPilesUI();
 
                 // deal a card untill player gets a non red three card
                 boolean dealtCardResult = false;
@@ -1126,6 +1130,8 @@ public class RoundFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 updateHumanMeldDetailUI();
+                updateHumanHandCard();
+
             }
         });
 
@@ -1133,6 +1139,7 @@ public class RoundFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 updateCompMeldDetailUI();
+                updateComphandCard();
             }
         });
     }

@@ -254,6 +254,7 @@ public class RoundController {
             }
         }
 
+
         // initializing the game
         mRoundModel = new Round(currRoundNum, playerTurn, compTotalScore,
                 compActualHand, compMelds, humanTotalScore, humanActualHand,
@@ -343,6 +344,7 @@ public class RoundController {
             return false;
         }*/
     }
+
 
 
 }

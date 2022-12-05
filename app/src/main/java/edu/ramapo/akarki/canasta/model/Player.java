@@ -698,7 +698,9 @@ public class Player {
 	public Pair<Boolean, String> addToMeld(Integer aHandCardIdx,
 			Integer aMeldIdx)
 	{
-		switch (mPlayerHand.getCardAtIdx(0, aHandCardIdx).getCardType())
+		Card card = mPlayerHand.getCardAtIdx(0, aHandCardIdx);
+
+		switch (card.getCardType())
 		{
 		case CARDTYPE_NATURAL:
 		{
@@ -707,10 +709,12 @@ public class Player {
 		case CARDTYPE_WILDCARD:
 		{
 			return mPlayerHand.addWildCardToMeld(aHandCardIdx, aMeldIdx);
+
 		}
 		case CARDTYPE_BLACK_THREE:
 		{
 			return new Pair<Boolean, String>(false, "Cannot meld a Black 3");
+
 		}
 		default:
 		{
