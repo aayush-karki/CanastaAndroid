@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Vector;
 
 import edu.ramapo.akarki.canasta.R;
+import edu.ramapo.akarki.canasta.exceptions.EmptyStockException;
 import edu.ramapo.akarki.canasta.model.Card;
 import edu.ramapo.akarki.canasta.model.Message;
 import edu.ramapo.akarki.canasta.model.Pair;
@@ -90,13 +91,11 @@ public class RoundFragment extends Fragment {
     Button mMainMenuBtn;
     Button mLogBtn;
     Button mGoOutBtn;
-    Group mSaveHelpGroup;
 
     // top button that are avialable during the human's turn
     Button mDiscardBtn;
     Button mTakeOutBtn;
     Button mMeldBtn;
-    Group mHumanContinuRoundBtnGroup;
 
     Button mContinueBtn;
     Button mDrawBtn;
@@ -116,9 +115,12 @@ public class RoundFragment extends Fragment {
     TextView mHumanMeldDetailRankTxt;
     TextView mMessageTxt;
 
+    Group mSaveHelpGroup;
+    Group mHumanContinuRoundBtnGroup;
+    Group mDrawPickupGroup;
+
     Group mCompMeldDetailGroup;
     Group mHumanMeldDetailGroup;
-    Group mDrawPickupGroup;
 
     // round obj
     RoundController mRoundController;
@@ -157,13 +159,6 @@ public class RoundFragment extends Fragment {
             mAbsFilePath = getArguments().getString("absFilePath");
         }
 
-        /*// TODO: delete  me and get the list of cards for all the recycle view
-        // Put initial data into the word list.
-        for (int i = 0; i < 5; i++) {
-            mCompHandCardList.add( new Card("3S"));
-        }
-        mCompHandCardList.add(new Card("5S"));
-        */
         // creating the round controller
         try {
             mRoundController = new RoundController(mIsNewGame, mAbsFilePath);
@@ -174,7 +169,6 @@ public class RoundFragment extends Fragment {
             // naviage to main menu
             navToMainMenu();
         }
-
 
         // updating the list with data
         updateRecycleView();
@@ -195,48 +189,73 @@ public class RoundFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // updating the texts in the screen
-        updateTextInfos();
-
         // computer hand
-        initailizeRecycleView(mCompHandAdapter, mCompHandRecyclerView,
-                view.findViewById(R.id.compHandCardRecyclerView), mCompHandCardList);
+        mCompHandRecyclerView = view.findViewById(R.id.compHandCardRecyclerView);
+        mCompHandAdapter = new CardListAdaptor(requireActivity(), mCompHandCardList, true, false, true);
+        mCompHandRecyclerView.setAdapter(mCompHandAdapter);
+        mCompHandRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
 
         // for computer melds
-        initailizeRecycleView(mCompMeldsAdapter, mCompMeldsRecyclerView,
-                view.findViewById(R.id.compMeldsRecyclerView), mCompMelsCardList);
+        mCompMeldsRecyclerView = view.findViewById(R.id.compMeldsRecyclerView);
+        mCompMeldsAdapter = new CardListAdaptor(requireActivity(), mCompMelsCardList,true, false, false);
+        mCompMeldsRecyclerView.setAdapter(mCompMeldsAdapter);
+        mCompMeldsRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
 
         // for computer meld Details
-        initailizeRecycleView(mCompMeldsDetailsdapter, mCompMeldDetailsRecyclerView,
-                view.findViewById(R.id.compMeldDetailRecyclerView), mCompMelDetailCardList);
+        mCompMeldDetailsRecyclerView = view.findViewById(R.id.compMeldDetailRecyclerView);
+        mCompMeldsDetailsdapter = new CardListAdaptor(requireActivity(),  mCompMelDetailCardList,
+                true, false, false);
+        mCompMeldDetailsRecyclerView.setAdapter(mCompMeldsDetailsdapter);
+        mCompMeldDetailsRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
 
         // for discard pile
-        initailizeRecycleView(mDiscardPileAdapter, mDiscardPileRecyclerView,
-                view.findViewById(R.id.discardPileRecyclerView), mdiscardPileCardList);
+        mDiscardPileRecyclerView = view.findViewById(R.id.discardPileRecyclerView);
+        mDiscardPileAdapter = new CardListAdaptor(requireActivity(),  mdiscardPileCardList,
+                false, false, false);
+        mDiscardPileRecyclerView.setAdapter(mDiscardPileAdapter);
+        mDiscardPileRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
 
         // for stock pile
-        initailizeRecycleView(mStockPileAdapter, mStockPileRecyclerView,
-                view.findViewById(R.id.stockPileRecyclerView), mStockPileCardList);
+        mStockPileRecyclerView = view.findViewById(R.id.stockPileRecyclerView);
+        mStockPileAdapter = new CardListAdaptor(requireActivity(), mStockPileCardList,
+                false, false, false);
+        mStockPileRecyclerView.setAdapter(mStockPileAdapter);
+        mStockPileRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+
 
         /// human hand
-        initailizeRecycleView(mHumanHandAdapter, mHumanHandRecyclerView,
-                view.findViewById(R.id.humanHandCardRecyclerView), mHumanHandCardList);
+        mHumanHandRecyclerView = view.findViewById(R.id.humanHandCardRecyclerView);
+        mHumanHandAdapter = new CardListAdaptor(requireActivity(), mHumanHandCardList,
+                true, true, true);
+        mHumanHandRecyclerView.setAdapter(mHumanHandAdapter);
+        mHumanHandRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
 
         // for human melds
-        initailizeRecycleView(mHumanMeldsAdapter, mHumanMeldsRecyclerView,
-                view.findViewById(R.id.humanMeldsRecyclerView), mHumanMelsCardList);
+        mHumanMeldsRecyclerView = view.findViewById(R.id.humanMeldsRecyclerView);
+        mHumanMeldsAdapter = new CardListAdaptor(requireActivity(),mHumanMelsCardList,
+                true, true, false);
+        mHumanMeldsRecyclerView.setAdapter(mHumanMeldsAdapter);
+        mHumanMeldsRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
 
         // for human meld Details
-        initailizeRecycleView(mHumanMeldsDetailsdapter, mHumanMeldDetailsRecyclerView,
-                view.findViewById(R.id.humanMeldDetailRecyclerView), mHumanMelDetailCardList);
+        mHumanMeldDetailsRecyclerView = view.findViewById(R.id.humanMeldDetailRecyclerView);
+        mHumanMeldsDetailsdapter = new CardListAdaptor(requireActivity(), mHumanMelDetailCardList,
+                true, true, true);
+        mHumanMeldDetailsRecyclerView.setAdapter(mHumanMeldsDetailsdapter);
+        mHumanMeldDetailsRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
 
         // setting up the buttons click listener
         setBtnClickListener();
 
-
+        // updating the uis
         if (mRoundController.mRoundModel.getPlayerTurn().equals(Round.ENUM_PlayerTurn.TURN_UNINITAIZLIZED)) {
             determinePlayerOrder();
         }
+
+        setNextPlayer(mRoundController.mRoundModel.getPlayerTurn());
+
+        // updating the texts in the screen
+        updateTextInfos();
     }
 
     @Override
@@ -254,11 +273,12 @@ public class RoundFragment extends Fragment {
      * @param aCardToAdd       - list of cards as data to bind to the adaptor
      */
     public void initailizeRecycleView(CardListAdaptor aCardListAdaptor, RecyclerView aRecycleView,
-                                      RecyclerView aRecycleViewId, final Vector<Card> aCardToAdd) {
+                                      RecyclerView aRecycleViewId, final Vector<Card> aCardToAdd,
+                                      boolean aPlayer, boolean aIsHuman, boolean aIsHand) {
         // store a handle to the RecyclerView.
         aRecycleView = aRecycleViewId;
         // Create an adapter and supply the data to be displayed.
-        aCardListAdaptor = new CardListAdaptor(requireActivity(), aCardToAdd);
+        aCardListAdaptor = new CardListAdaptor(requireActivity(), aCardToAdd, aPlayer, aIsHuman, aIsHand);
         // Connect the adapter with the RecyclerView.
         aRecycleView.setAdapter(aCardListAdaptor);
         // Give the RecyclerView a default layout manager.
@@ -361,6 +381,17 @@ public class RoundFragment extends Fragment {
         // copying meldDetail
         // TODO: add meld details
 
+        if(mCompHandAdapter != null)
+        {
+            mCompHandAdapter.notifyDataSetChanged();
+            mCompMeldsAdapter.notifyDataSetChanged();
+            mCompMeldsDetailsdapter.notifyDataSetChanged();
+            mDiscardPileAdapter.notifyDataSetChanged();
+            mStockPileAdapter.notifyDataSetChanged();
+            mHumanHandAdapter.notifyDataSetChanged();
+            mHumanMeldsAdapter.notifyDataSetChanged();
+            mHumanMeldsDetailsdapter.notifyDataSetChanged();
+        }
 /*
         // holds the list of computer meld detail
         private final Vector<Card> mCompMelDetailCardList = new  Vector<Card> ();
@@ -470,21 +501,11 @@ public class RoundFragment extends Fragment {
 
         if (aPlayerTurn.equals(Round.ENUM_PlayerTurn.TURN_HUMAN)) {
             mCurrPlayer.setText("Curr: Human");
-
-            // setting up its button
-            mContinueBtn.setVisibility(View.GONE);
-            mHumanContinuRoundBtnGroup.setVisibility(View.GONE);
-            mDrawPickupGroup.setVisibility(View.VISIBLE);
-            mSaveHelpGroup.setVisibility(View.VISIBLE);
+            buttonMask(false,false,true);
 
         } else {
             mCurrPlayer.setText("Curr: Computer");
-
-            // setting up the button
-            mContinueBtn.setVisibility(View.VISIBLE);
-            mHumanContinuRoundBtnGroup.setVisibility(View.GONE);
-            mDrawPickupGroup.setVisibility(View.GONE);
-            mSaveHelpGroup.setVisibility(View.GONE);
+            buttonMask(true,false,false);
         }
 
     }
@@ -643,6 +664,9 @@ public class RoundFragment extends Fragment {
                 String message = "New Round Started";
                 Message.addMessage(message);
                 createDialogMessage("Message", message);
+
+                updateRecycleView();
+                displayMessages();
             }
         });
 
@@ -752,7 +776,6 @@ public class RoundFragment extends Fragment {
         mHelpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO setup help
                 if (mDrawPickupGroup.getVisibility() == View.VISIBLE) {
                     mRoundController.mRoundModel.turnStartLogic(1);
                 } else if (mHumanContinuRoundBtnGroup.getVisibility() == View.VISIBLE) {
@@ -793,7 +816,45 @@ public class RoundFragment extends Fragment {
         mDiscardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO do what discard is supposed to
+                Vector<Integer> handCardList = mHumanHandAdapter.getSelectedPos();
+
+                Player humanPlayer = mRoundController.mRoundModel.getHumanPlayer();
+
+                if(handCardList.size() != 1)
+                {
+                    // concoting message to display
+                    String displayMessage = "Cannot make a discard, select only one card from the hand  to add to a discard";
+                    Message.addMessage(displayMessage);
+                    createDialogMessage("Invalid", displayMessage);
+                    displayMessages();
+                    return;
+                }
+                Card cardToAdd = humanPlayer.getActualHand().get( handCardList.get(0));
+
+                // discarding and adding the discarded card to discard pile
+                mRoundController.mRoundModel.addToDiscardPile(humanPlayer.discard(handCardList.elementAt(0)));
+
+                // concoting message to display
+                StringBuilder displayMessage = new StringBuilder(humanPlayer.getClass().getSimpleName());
+                displayMessage.append(" discard ");
+                displayMessage.append(cardToAdd.getRankSuit());
+                Message.addMessage(displayMessage.toString());
+
+                mDiscardPileAdapter.unSelectAll();
+                updateRecycleView();
+                displayMessages();
+
+                // checking if the curr player can go out
+                if (humanPlayer.canGoOut()) {
+                    humanPlayer.setPlayerWentOutStatus(true);
+                    mRoundController.mRoundModel.setPlayerwentOut(true);
+                }
+
+                buttonMask(true,false,false);
+
+                // clearing the menu flag
+                humanPlayer.setPlayerBeforeTurnMenuFlag(true);
+                humanPlayer.setTurnStartFlag(true);
 
                 setNextPlayer();
                 hasRoundEnded();
@@ -810,7 +871,112 @@ public class RoundFragment extends Fragment {
         mMeldBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO setup meld
+                Vector<Integer> handCardList = mHumanHandAdapter.getSelectedPos();
+                Vector<Integer> meldCardList = mHumanMeldsAdapter.getSelectedPos();
+
+                Player humanPlayer = mRoundController.mRoundModel.getHumanPlayer();
+
+                // trying to create a new meld
+                Pair<Boolean, String> result = humanPlayer.makeNewMeld(handCardList);
+
+                // if the first is false then error
+                if (Boolean.TRUE.equals(result.getFirst())) {
+
+                    Message.addMessage(result.getSecond());
+                    Card cardToMeld = humanPlayer.getMelds().lastElement()
+                            .firstElement();
+
+                    // concoting message to display
+                    StringBuilder displayMessage = new StringBuilder(humanPlayer.getClass().getSimpleName());
+                    displayMessage.append(" made a new meld of ");
+                    displayMessage.append(cardToMeld.getRankSuit());
+                    Message.addMessage(displayMessage.toString());
+
+                    mHumanHandAdapter.unSelectAll();
+                    updateRecycleView();
+                    displayMessages();
+                    return;
+                }
+
+                if(meldCardList.size() == 0)
+                {
+                    // concoting message to display
+                    String displayMessage = "Cannot make a meld, if you are trying to add to a meld choose a meld to add to";
+                    Message.addMessage(displayMessage);
+                    createDialogMessage("Invalid", displayMessage);
+                    displayMessages();
+                    return;
+                }
+                if(meldCardList.size() > 1)
+                {
+                    // concoting message to display
+                    String displayMessage = "Cannot make a meld, if you are trying to add to a meld then choose only one meld to add to a meld";
+                    Message.addMessage(displayMessage);
+                    createDialogMessage("Invalid", displayMessage);
+                    displayMessages();
+                    return;
+                }
+                if(handCardList.size() != 1)
+                {
+                    // concoting message to display
+                    String displayMessage = "Cannot make a meld, if you are trying to add to a meld then choose only one card from the hand  to add to a meld";
+                    Message.addMessage(displayMessage);
+                    createDialogMessage("Invalid", displayMessage);
+                    displayMessages();
+                    return;
+                }
+
+                Card cardToAdd = humanPlayer.getActualHand().get( handCardList.get(0));
+                Pair<Integer, String> returnVal = humanPlayer.canAddToMeld(cardToAdd);
+
+                 // trying to add to a meld
+                if(returnVal.getFirst().equals(-1))
+                {
+                    // concoting message to display
+                    String displayMessage = "Cannot make a meld, The selected hand card cannot be added to any meld";
+                    Message.addMessage(displayMessage);
+                    createDialogMessage("Invalid", displayMessage);
+                    displayMessages();
+                    return;
+                }
+
+                Card recommenedMeldToAddTo = humanPlayer.getHand().get(returnVal.getFirst()).firstElement();
+
+                if(returnVal.getFirst() != meldCardList.get(0))
+                {
+                    // concoting message to display
+                    String displayMessage = "Cannot make a meld, The selected hand card cannot be added to the selected meld. Try adding it to the meld of " +  recommenedMeldToAddTo.getRank();
+                    Message.addMessage(displayMessage);
+                    createDialogMessage("Invalid", displayMessage);
+                    displayMessages();
+                    return;
+                }
+
+                // selected card can be added to a meld
+
+               result = humanPlayer.addToMeld(
+                       handCardList.elementAt(0), meldCardList.elementAt(0));
+
+                // if the first is false then error
+                if (Boolean.FALSE.equals(result.getFirst())) {
+                    // concoting message to display
+                    String displayMessage = "Cannot make a meld";
+                    Message.addMessage(displayMessage);
+                    createDialogMessage("Invalid", displayMessage);
+                    displayMessages();
+                    return;
+                }
+
+                // concoting message to display
+                StringBuilder displayMessage = new StringBuilder(humanPlayer.getClass().getSimpleName());
+                displayMessage.append(" added ");
+                displayMessage.append(cardToAdd.getRankSuit());
+                displayMessage.append(" to the meld of " + recommenedMeldToAddTo.getRank());
+                Message.addMessage(displayMessage.toString());
+
+                mHumanHandAdapter.unSelectAll();
+                updateRecycleView();
+                displayMessages();
             }
         });
 
@@ -818,21 +984,135 @@ public class RoundFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //TODO setup continue
+
+                /*
+                buttonMask(false,true,false);
+                updateRecycleView();
+                displayMessages();
+                * */
             }
         });
 
         mDrawBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO setup draw
+                Player humanPlayer = mRoundController.mRoundModel.getHumanPlayer();
+
+
+                // deal a card untill player gets a non red three card
+                boolean dealtCardResult = false;
+                while (!dealtCardResult) {
+                    try {
+                        Card dealtCard = mRoundController.mRoundModel.getDeck().dealCard();
+                        dealtCardResult = humanPlayer.addCardToHand(dealtCard);
+
+                        // concoting message to display
+                        StringBuilder dealtMessage = new StringBuilder(
+                                humanPlayer.getClass().getSimpleName() + " drew ");
+                        dealtMessage.append(dealtCard.getRankSuit());
+                        Message.addMessage(dealtMessage.toString());
+                    } catch (EmptyStockException e) {
+                        // checking if the stock is empty and last dealt card was
+                        // red
+                        // three
+                        mRoundController.mRoundModel.setLastCardR3Drwan( !dealtCardResult);
+                    }
+                }
+
+                // setting the turn start flag to false
+                humanPlayer.setTurnStartFlag(false);
+
+                buttonMask(false,true,false);
+                updateRecycleView();
+                displayMessages();
+
             }
         });
 
         mPickupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO setup pickup
+                Player humanPlayer = mRoundController.mRoundModel.getHumanPlayer();
+                Vector<Card> discardPile = mRoundController.mRoundModel.getDiscardPile();
+
+                // player can not pick up the discard pile if the
+                // the top card can not be used to be melded
+
+                // see if we can meld the top of the discard pile into any
+                // of the alredy existing melds
+                if (humanPlayer.canAddToMeld(discardPile.firstElement())
+                        .getFirst() == -1
+                        && !humanPlayer.canPickUpDiscardPile(discardPile)) {
+                    // we can not meld the stack so our only option is to draw
+                    // concoting message to display
+                    String displayMessage = "Human can not pick up discard pile ";
+                    Message.addMessage(displayMessage);
+                    createDialogMessage("Invalid", displayMessage);
+                    displayMessages();
+                    return;
+                }
+
+                String discardCardStr = Card
+                        .getAllCardInPrintedFormat(discardPile);
+
+                // adding all the card of the discard pile to the player
+                for (Card discardCard : discardPile) {
+                    humanPlayer.addCardToHand(discardCard);
+                }
+
+                // clearing the discard pile
+                mRoundController.mRoundModel.emptyDiscardPile();
+
+                // concoting message to display
+                StringBuilder displayMessage = new StringBuilder(" Human picked up following cards from the discard pile\n");
+                displayMessage.append(discardCardStr);
+                Message.addMessage(displayMessage.toString());
+                createDialogMessage("Invalid", displayMessage.toString());
+                displayMessages();
+
+                // setting the turn start flag to false
+                humanPlayer.setTurnStartFlag(false);
+
+                buttonMask(false,true,false);
+                updateRecycleView();
+                displayMessages();
             }
         });
+
+    }
+
+    /**
+     * masks the button
+     * @param showContinueBtn shows only  the continue btn if true
+     * @param showContinueRoundBtn shows help and continueRound buttons if true
+     * @param showDrawPickup shows help and drawPickup buttons if true
+     */
+    void buttonMask(boolean showContinueBtn, boolean showContinueRoundBtn, boolean showDrawPickup )
+    {
+        if(showContinueBtn)
+        {
+            mContinueBtn.setVisibility(View.VISIBLE);
+            mSaveHelpGroup.setVisibility(View.INVISIBLE);
+            mHumanContinuRoundBtnGroup.setVisibility(View.GONE);
+            mDrawPickupGroup.setVisibility(View.GONE);
+            return;
+        }
+        if(showContinueRoundBtn)
+        {
+            mContinueBtn.setVisibility(View.GONE);
+            mSaveHelpGroup.setVisibility(View.VISIBLE);
+            mHumanContinuRoundBtnGroup.setVisibility(View.VISIBLE);
+            mDrawPickupGroup.setVisibility(View.GONE);
+            return;
+        }
+        if(showDrawPickup)
+        {
+            mContinueBtn.setVisibility(View.GONE);
+            mSaveHelpGroup.setVisibility(View.VISIBLE);
+            mHumanContinuRoundBtnGroup.setVisibility(View.GONE);
+            mDrawPickupGroup.setVisibility(View.VISIBLE);
+            return;
+        }
+
     }
 }

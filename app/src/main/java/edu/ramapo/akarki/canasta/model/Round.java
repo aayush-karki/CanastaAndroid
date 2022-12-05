@@ -75,9 +75,7 @@ public class Round {
         // initializing 2 players
         mPlayerList = new Vector<Player>(2);
         mPlayerList.add(new Computer());
-        // mPlayerList.add(new Human());
-        // TODO delete me
-        mPlayerList.add(new Computer());
+        mPlayerList.add(new Human());
 
         // initialize the discard Pile
         mDiscardPile = new Vector<Card>(108);
@@ -139,12 +137,8 @@ public class Round {
 
         mPlayerList.add(
                 new Computer(aCompTotalScore, aCompActualHand, aCompMelds));
-        // mPlayerList.add(
-        // new Human(aHumanTotalScore, aHumanActualHand, aHumanMelds));
-
-        // TODO delete me
-        mPlayerList.add(
-                new Computer(aHumanTotalScore, aHumanActualHand, aHumanMelds));
+         mPlayerList.add(
+         new Human(aHumanTotalScore, aHumanActualHand, aHumanMelds));
 
         // initialize the discard Pile
         mDiscardPile = new Vector<Card>(108);
@@ -353,6 +347,12 @@ public class Round {
         return mRoundStart;
     }
 
+    /**
+     * get deck
+     *
+     * @return Deck, deck object
+     */
+    public Deck getDeck() { return mDeck;}
 
     /**
      * get the player turn
@@ -384,6 +384,16 @@ public class Round {
     }
 
     /**
+     * sets mLastCardR3Drwan
+     *
+     * @return true to signify thevar was set
+     */
+    public boolean setLastCardR3Drwan(boolean aLastCardR3Drwan) {
+        mLastCardR3Drwan = aLastCardR3Drwan;
+        return true;
+    }
+
+    /**
      * sets player turn
      *
      * @param aPlayerTurn player whoese turn its gonna be
@@ -391,6 +401,17 @@ public class Round {
      */
     public boolean setPlayerTurn(ENUM_PlayerTurn aPlayerTurn) {
         mPlayerTurn = aPlayerTurn;
+        return true;
+    }
+
+    /**
+     * sets player turn
+     *
+     * @param aPlayerWentOut player went out
+     * @return true
+     */
+    public boolean setPlayerwentOut(boolean aPlayerWentOut) {
+        mPlayerWentOut = aPlayerWentOut;
         return true;
     }
 
@@ -1059,8 +1080,6 @@ public class Round {
      */
     public String tossACoin() {
         return (mRandom.nextInt(2)) == 0 ? "h" : "t";
-        // TODO delete me
-        // return "t";
     }
 
     /**

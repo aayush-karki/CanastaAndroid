@@ -71,6 +71,7 @@ public class RoundController {
         Log.i("CanastaRoundInfo", "Computer point: " +  mRoundModel.getComputerPlayer().getTotalPoint());
         Log.i("CanastaRoundInfo", "Human: " +  mRoundModel.getHumanPlayer().toString());
         Log.i("CanastaRoundInfo", "human point: " +  mRoundModel.getHumanPlayer().getTotalPoint());
+        Log.i("CanastaRoundInfo", "NextPlayer: " +  mRoundModel.getPlayerTurn().toString());
     }
 
     /**

@@ -57,7 +57,7 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/topGuide"
         app:layout_constraintStart_toEndOf="@+id/mainMenuBtn"
-        app:layout_constraintTop_toTopOf="@+id/helpBtn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/mainMenuBtn"
@@ -320,11 +320,12 @@
 
     <TextView
         android:id="@+id/messageTxt"
-        android:layout_width="172dp"
-        android:layout_height="76dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:ems="10"
         android:gravity="start|top"
+        android:background="@color/app_light_primary"
         app:layout_constraintBottom_toTopOf="@+id/humanMeldDetailTxt"
         app:layout_constraintEnd_toStartOf="@+id/stockPileRecyclerView"
         app:layout_constraintHorizontal_bias="0.047"
