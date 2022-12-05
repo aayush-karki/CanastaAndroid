@@ -23,10 +23,10 @@ public class FileAccess {
 
 	/**
 	 * constructor
-	 * 
-	 * @param none
-	 * 
-	 * @return none
+	 *
+
+	 *
+
 	 */
 	public FileAccess()
 	{
@@ -48,10 +48,10 @@ public class FileAccess {
 
 	/**
 	 * copy constructor
-	 * 
-	 * @param none
-	 * 
-	 * @return none
+	 *
+
+	 *
+
 	 */
 	public FileAccess(final FileAccess aOther)
 	{
@@ -62,10 +62,10 @@ public class FileAccess {
 	/**
 	 * To create a empty file with the passed filename and open it in read and
 	 * write mode.
-	 * 
+	 *
 	 * @param aFullfileName string, holds the filename of the file that that is
 	 *                          to be created and is in "(cwd)/data/" directory.
-	 * 
+	 *
 	 * @return true on successfull creation and opening; else false
 	 */
 	public boolean createFile(String aFullfileName)
@@ -97,10 +97,10 @@ public class FileAccess {
 
 	/**
 	 * checks if the passed string exist or not, if yes saves it and its path
-	 * 
+	 *
 	 * @param aFullfileName, string, holds the filename of the file that that is
 	 *                           to be opened and is in "(cwd)/data/" directory.
-	 * 
+	 *
 	 * @return true on passed file existing; else false
 	 */
 	public boolean openFile(String aFullfileName)
@@ -125,9 +125,9 @@ public class FileAccess {
 
 	/**
 	 * read all the text in the file
-	 * 
-	 * @param none
-	 * 
+	 *
+
+	 *
 	 * @return if successfull Vector of String each string represent one line;
 	 *         else returns empty Vector of String
 	 */
@@ -153,10 +153,10 @@ public class FileAccess {
 
 	/**
 	 * Wrties a all the text to the file
-	 * 
+	 *
 	 * @param aline, const a string passed by value, it holds the string that is
 	 *                   to be added to the file
-	 * 
+	 *
 	 * @return true on successfull insertion; else false
 	 */
 	public boolean writeAllText(final Vector<String> aLines)
@@ -179,10 +179,10 @@ public class FileAccess {
 
 	/**
 	 * To get a file path from the passed string
-	 * 
+	 *
 	 * @param aFileName, string, holds the filename of the file that that is is
 	 *                       in "(cwd)/data/" directory.
-	 * 
+	 *
 	 * @return Path object with file name beign the stem of passed file name,
 	 *         and parent_path beign the dataFolderPath
 	 */

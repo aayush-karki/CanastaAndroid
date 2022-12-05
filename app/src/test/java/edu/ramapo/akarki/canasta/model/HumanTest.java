@@ -17,9 +17,9 @@ public class HumanTest {
 	/**
 	 * Unit test the Human's defulat contructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void humanWithParamDefaultContructor()
@@ -31,9 +31,9 @@ public class HumanTest {
 	/**
 	 * Test function to test the human's constructor for exception.
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 * 
 	 * @throws ImproperMeldException this is when the meld has a card that is
 	 *                                   not valid
@@ -56,9 +56,9 @@ public class HumanTest {
 	/**
 	 * Unit test the Human's contructor with param
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void humanWithParamContructorWithParam()
@@ -126,9 +126,9 @@ public class HumanTest {
 	/**
 	 * Unit test the Human's copy contructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void humanWithParamCopyContructor()

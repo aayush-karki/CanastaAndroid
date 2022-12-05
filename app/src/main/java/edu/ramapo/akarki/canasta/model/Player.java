@@ -37,9 +37,9 @@ public class Player {
 	/**
 	 * default constructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	public Player()
 	{
@@ -65,7 +65,7 @@ public class Player {
 	 *                          the m_stock. Each card is seperated by blank
 	 *                          space and each meld is inside '[' and ']'
 	 * 
-	 * @return none
+	 
 	 * 
 	 * @throws ImproperMeldException
 	 */
@@ -88,7 +88,7 @@ public class Player {
 	 * @param aOtherPlayer, a object of Player class passed. It holds a Player
 	 *                          object to be copied.
 	 * 
-	 * @return none
+	 
 	 */
 	public Player(final Player aOtherPlayer)
 	{
@@ -113,7 +113,7 @@ public class Player {
 	/**
 	 * toString funciton
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return card in the hand in the printed format
 	 */
@@ -132,7 +132,7 @@ public class Player {
 	/**
 	 * gets the saved current point
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return total point of the player
 	 */
@@ -144,7 +144,7 @@ public class Player {
 	/**
 	 * Get players hand
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return Vector of vector of Cards object that holds player's hand
 	 */
@@ -156,7 +156,7 @@ public class Player {
 	/**
 	 * Get players actual hand
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return Vector of Cards object that holds player's actual hand
 	 */
@@ -168,7 +168,7 @@ public class Player {
 	/**
 	 * Get players melds
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return Vector of Vector Cards object that holds player's melds
 	 */
@@ -180,7 +180,7 @@ public class Player {
 	/**
 	 * Get players actual hand in string format
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return String that holds player's actual hand in printed format
 	 */
@@ -192,7 +192,7 @@ public class Player {
 	/**
 	 * Get players melds in string format
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return String that holds player's meld in printed format
 	 */
@@ -204,7 +204,7 @@ public class Player {
 	/**
 	 * Get players went_out status
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return players went_out status
 	 */
@@ -216,7 +216,7 @@ public class Player {
 	/**
 	 * get players before_turn_flag status
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return players before_turn_flag status
 	 */
@@ -229,7 +229,7 @@ public class Player {
 	 * getter funciton to get the actual hand in divided format where each ranks
 	 * are seperated into its own list
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return Vector of Vector of Card where each Vector of Cards have the same
 	 *         ranks. All the ranks are in ascending order.
@@ -316,7 +316,7 @@ public class Player {
 	 * chose from "Save the game", "Take a turn" , or "Quit the game and go to
 	 * main menu"
 	 * 
-	 * @param nones
+	 s
 	 * 
 	 * @return Pair of < Integer ssss, Vector< Integer > >. The first interger
 	 *         indicates this was--that is beforeTurnStartLogic so it is always
@@ -663,7 +663,7 @@ public class Player {
 	/**
 	 * tallys the hand Point
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return tallied hand Point
 	 */
@@ -881,7 +881,7 @@ public class Player {
 	/**
 	 * Empties the cards in the hand
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return true to indicate success
 	 */
@@ -894,7 +894,7 @@ public class Player {
 	/**
 	 * Resets playe's hand and flag to prepare for new round
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return ool to indicate a successfull reset
 	 */
@@ -912,7 +912,7 @@ public class Player {
 	/**
 	 * default constructor
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return card in the hand in the printed format
 	 */

@@ -9,9 +9,9 @@ public class ValidRankSuitTest {
      * Test function to test the IsRankSuitValid() funciton of the ValidRankSuit
      * Class throwing exception.
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     @Test(expected = IllegalArgumentException.class)
     public void testIsRankSuitValidException()
@@ -26,9 +26,9 @@ public class ValidRankSuitTest {
      * Test function to test the IsRankSuitValid() funciton of the ValidRankSuit
      * Class.
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     @Test
     public void testIsRankSuitValid()
@@ -69,9 +69,9 @@ public class ValidRankSuitTest {
      * Test function to test the isRankValid() funciton of the ValidRankSuit
      * Class throwing exception.
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     @Test(expected = IllegalArgumentException.class)
     public void testIsRankValidException()
@@ -86,9 +86,9 @@ public class ValidRankSuitTest {
      * Test function to test the IsRankValid() funciton of the ValidRankSuit
      * Class
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     @Test
     public void testIsRankValid()
@@ -121,9 +121,9 @@ public class ValidRankSuitTest {
      * Test function to test the isSuitValid() funciton of the ValidRankSuit
      * Class throwing exception.
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     @Test(expected = IllegalArgumentException.class)
     public void testIsSuitValidException()
@@ -138,9 +138,9 @@ public class ValidRankSuitTest {
      * Test function to test the IsSuitValid() funciton of the ValidRankSuit
      * Class
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     @Test
     public void testIsSuitValid()

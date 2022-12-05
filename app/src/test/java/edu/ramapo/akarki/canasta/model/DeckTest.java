@@ -15,9 +15,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck Constructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testDeckConstructor()
@@ -29,9 +29,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck Constructor with parameters
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testDeckConstructorWithParam()
@@ -44,9 +44,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck copy constructor Constructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testDeckCopyConstructor()
@@ -87,9 +87,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck toString()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testToString()
@@ -102,9 +102,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck getStock()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetStock()
@@ -121,9 +121,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck getDealt()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetDealt()
@@ -140,9 +140,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck getStockString()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetStockString()
@@ -157,9 +157,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck isStockEmpty()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testIsStockEmpty()
@@ -172,9 +172,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck dealCard() exception
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 * 
 	 * @throws EmptyStockException
 	 */
@@ -194,9 +194,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck dealCard()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testDealCard()
@@ -218,9 +218,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck shuffle()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testShuffel()
@@ -231,9 +231,9 @@ public class DeckTest {
 	/**
 	 * Unit test the Deck consodilateDeck()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testConsodilateDeck()

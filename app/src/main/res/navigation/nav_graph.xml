@@ -26,6 +26,7 @@
             <argument
                 android:name="aNewGamePressed"
                 app:argType="boolean" />
+
         <action
             android:id="@+id/action_CreateLoadFragment_to_MainMenuStartFragment"
             app:destination="@id/MainMenuStartFragment" />
@@ -40,10 +41,10 @@
             android:id="@+id/action_RoundFragment_to_MainMenuStartFragment"
             app:destination="@id/MainMenuStartFragment" />
         <argument
-            android:name="aNewGamePressed"
+            android:name="isCreateNewGame"
             app:argType="boolean" />
         <argument
-            android:name="aFileName"
+            android:name="absFilePath"
             app:argType="string" />
     </fragment>
 </navigation>

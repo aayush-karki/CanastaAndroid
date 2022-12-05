@@ -8,9 +8,9 @@ public class Pair<K, V> {
     /**
      * Default Contructor for Pair Class.
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     public Pair(K aFirst, V aSecond)
     {
@@ -21,7 +21,7 @@ public class Pair<K, V> {
     /**
      * Overriding the hashcode method of the Object Class
      * 
-     * @param none
+     
      * 
      * @return int, the hascode for the object
      */
@@ -77,7 +77,7 @@ public class Pair<K, V> {
     /**
      * Gets the first item of the pair
      * 
-     * @param none
+     
      * 
      * @return object of K by value returns the first item of the pair
      */
@@ -89,7 +89,7 @@ public class Pair<K, V> {
     /**
      * Gets the second item of the pair
      * 
-     * @param none
+     
      * 
      * @return object of K by value returns the second item of the pair
      */

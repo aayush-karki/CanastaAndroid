@@ -9,9 +9,9 @@ public class UtitlityFuncTest {
 	/**
 	 * Unit test the Player's validateNumber() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testValidateNumber()

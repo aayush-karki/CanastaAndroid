@@ -14,6 +14,7 @@
     <color name="app_text_primary_dark">#373843</color>
     <color name="app_primary_accent_light">#87756B</color>
     <color name="app_text_primary_light">#C6CBD2</color>
+    <color name="app_Transparen">#00FFFFFF</color>
 
 
 </resources>

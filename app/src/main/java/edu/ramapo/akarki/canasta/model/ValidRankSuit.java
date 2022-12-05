@@ -13,9 +13,9 @@ final class ValidRankSuit {
     /**
      * Contructor for ValidRankSuit Class.
      *
-     * @param none
+     
      *
-     * @return none
+     
      */
     private ValidRankSuit()
     {}

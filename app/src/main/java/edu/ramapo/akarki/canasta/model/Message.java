@@ -14,9 +14,9 @@ public class Message {
 	/**
 	 * defalut constructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	private Message()
 	{}
@@ -24,7 +24,7 @@ public class Message {
 	/**
 	 * getter funciton to get the messages
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return Vector of String that returns the latest messages
 	 */
@@ -36,7 +36,7 @@ public class Message {
 	/**
 	 * getter funciton to get all the logged messages
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return Vector of String that returns all the logged messages
 	 */
@@ -63,7 +63,7 @@ public class Message {
 	/**
 	 * To clears the latest message list and add it to logs
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return true to indicate a success
 	 */
@@ -82,7 +82,7 @@ public class Message {
 	/**
 	 * To clears the log list
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return true to indicate a success
 	 */
@@ -96,9 +96,9 @@ public class Message {
 	/**
 	 * To print out all the latest message in the message vector.
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	public void printLatestMessages()
 	{
@@ -114,9 +114,9 @@ public class Message {
 	/**
 	 * To print out all the log in the message vector.
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	public void printLogMessages()
 	{

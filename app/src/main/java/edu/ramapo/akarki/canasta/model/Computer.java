@@ -10,9 +10,9 @@ public class Computer extends Player {
 	/**
 	 * default finalructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	public Computer()
 	{
@@ -31,7 +31,7 @@ public class Computer extends Player {
 	 *                          the m_stock. Each card is seperated by blank
 	 *                          space and each meld is inside '[' and ']'
 	 * 
-	 * @return none
+	 
 	 * 
 	 * @throws ImproperMeldException
 	 */
@@ -48,7 +48,7 @@ public class Computer extends Player {
 	 * @param aOtherComputer , a object of Computer class passed. It holds a
 	 *                           Computer object to be copied.
 	 * 
-	 * @return none
+	 
 	 */
 	public Computer(final Computer aOther)
 	{
@@ -62,7 +62,7 @@ public class Computer extends Player {
 	 * @param aOtherComputer , a object of Player class passed. It holds a
 	 *                           player object to be copied.
 	 * 
-	 * @return none
+	 
 	 */
 	public Computer(final Player aOther)
 	{
@@ -74,7 +74,7 @@ public class Computer extends Player {
 	 * chose from "Save the game", "Take a turn" , or "Quit the game and go to
 	 * main menu"
 	 * 
-	 * @param nones
+	 s
 	 * 
 	 * @return Pair of < Integer ssss, Vector< Integer > >. The first interger
 	 *         indicates this was--that is beforeTurnStartLogic so it is always
@@ -422,7 +422,7 @@ public class Computer extends Player {
 	/**
 	 * Contains the logic for if we can add a card to existing melds
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return a pair of < pair of < integer , vector of integer >, string >. If
 	 *         it is true, the inside pair contains the current submenu index
@@ -467,7 +467,7 @@ public class Computer extends Player {
 	/**
 	 * Contains the logic for if we can make new a card
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return a pair of < pair of < integer , vector of integer >, string >. If
 	 *         it is true, the inside pair contains the current submenu index
@@ -559,7 +559,7 @@ public class Computer extends Player {
 	 * takes out the wild card from the meld if the meld is not the size of 7
 	 * and more than 3 and taking out the wild card will not break the meld
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return a pair of < Boolean, pair of < integer , integer > >. If it is
 	 *         true, returns a pair whose first element is true and second is a
@@ -605,7 +605,7 @@ public class Computer extends Player {
 	/**
 	 * Contains the logic to add a wild card to the largest possible meld
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return a pair of < pair of < integer , vector of integer >, string >. If
 	 *         it is true, the inside pair contains the current submenu index

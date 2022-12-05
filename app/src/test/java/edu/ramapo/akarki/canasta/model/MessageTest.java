@@ -18,9 +18,9 @@ public class MessageTest {
 	/**
 	 * Unit test the Message getMessages()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testgetMessage()
@@ -36,9 +36,9 @@ public class MessageTest {
 	/**
 	 * Unit test the Message getLog()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetLog()
@@ -58,9 +58,9 @@ public class MessageTest {
 	/**
 	 * Unit test the Message addMessage()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testAddMessage()
@@ -74,9 +74,9 @@ public class MessageTest {
 	/**
 	 * Unit test the Message clearMessage()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testClearLatestMessages()

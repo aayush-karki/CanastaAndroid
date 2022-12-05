@@ -6,9 +6,9 @@ public class Human extends Player {
 	/**
 	 * default constructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	public Human()
 	{
@@ -27,7 +27,7 @@ public class Human extends Player {
 	 *                          the m_stock. Each card is seperated by blank
 	 *                          space and each meld is inside '[' and ']'
 	 * 
-	 * @return none
+	 
 	 * 
 	 * @throws ImproperMeldException
 	 */
@@ -44,7 +44,7 @@ public class Human extends Player {
 	 * @param aOtherHuman, a object of Human class passed. It holds a Human
 	 *                         object to be copied.
 	 * 
-	 * @return none
+	 
 	 */
 	public Human(final Human aOther)
 	{

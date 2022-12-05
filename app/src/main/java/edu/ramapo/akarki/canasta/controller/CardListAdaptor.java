@@ -292,6 +292,14 @@ public class CardListAdaptor extends
             {
                 return R.drawable.card_b_ha;
             }
+            case "J1":
+            {
+                return R.drawable.card_b_joker_black;
+            }
+            case "J2":
+            {
+                return R.drawable.card_b_joker_red;
+            }
             default:
             {
                 return -1;

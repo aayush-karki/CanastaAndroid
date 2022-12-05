@@ -18,9 +18,9 @@ public class HandTest {
 	/**
 	 * Test the defualt Hand Constructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testHandConstructorNoParam()
@@ -33,9 +33,9 @@ public class HandTest {
 	/**
 	 * Test function to test the Hand's constructor for exception.
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 * 
 	 * @throws ImproperMeldException this is when the meld has a card that is
 	 *                                   not valid
@@ -57,9 +57,9 @@ public class HandTest {
 	/**
 	 * Test the Hand Constructor when paramerters are passed
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testHandConstructorWithParam()
@@ -121,9 +121,9 @@ public class HandTest {
 	/**
 	 * Test the Hand Constructor when paramerters are passed
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testHandCopyConstructor()
@@ -157,9 +157,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's toString()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testToString()
@@ -185,9 +185,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's getHasCanasta()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetHasCanasta()
@@ -198,9 +198,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's gethand()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetHand()
@@ -217,9 +217,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's getMelds()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetMelds()
@@ -274,9 +274,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's getTotalMeldNum()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetTotalMeldNum()
@@ -287,9 +287,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's getTotalHandCardNum()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetTotalHandCardNum()
@@ -300,9 +300,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's getCardAtIdx()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetCardAtIdx()
@@ -314,9 +314,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's getActualHand()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetActualHand()
@@ -338,9 +338,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's getDividedAcualHandCardList()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetDividedAcualHandCardList()
@@ -363,9 +363,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's getActualHandString()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetActualHandString()
@@ -381,9 +381,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's getMeldsString()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetMeldsString()
@@ -414,9 +414,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's canAddToMeld()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testCanAddToMeld()
@@ -451,9 +451,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's addCardToHand()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testAddCardToHand()
@@ -470,9 +470,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's addNaturalCardToMeld()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testAddNaturalCardToMeld()
@@ -505,9 +505,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's addWildCardToMeld()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testAddWildCardToMeld()
@@ -543,9 +543,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's makeMeld()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testMakeMeld()
@@ -635,9 +635,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's isActualHandEmpty()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testIsActualHandEmpty()
@@ -657,9 +657,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's actualHandHasWildCard()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testActualHandHasWildCard()
@@ -679,9 +679,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's meldHasWildCard()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testMeldHasWildCard()
@@ -706,9 +706,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's takeOutCardFromMeld()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testTakeOutCardFromMeld()
@@ -748,9 +748,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's discard()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testDiscard()
@@ -769,9 +769,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's tallyPoints()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testTallyPoints()
@@ -799,9 +799,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's validateMeldIdx()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testValidateMeldIdx()
@@ -828,9 +828,9 @@ public class HandTest {
 	/**
 	 * Test the Hand's validateCardIdx()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testValidateCardIdx()

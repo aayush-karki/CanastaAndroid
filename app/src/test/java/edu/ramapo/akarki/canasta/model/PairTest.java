@@ -10,9 +10,9 @@ public class PairTest {
     /**
      * Unit test the Pair's GetFirst() function
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     @Test
     public void testGetFirst()
@@ -23,9 +23,9 @@ public class PairTest {
     /**
      * Unit test the Pair's GetFirst() function
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     @Test
     public void testGetSecond()
@@ -36,9 +36,9 @@ public class PairTest {
     /**
      * Unit test the Pair's GetFirst() function
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     @Test
     public void testSetFirst()
@@ -50,9 +50,9 @@ public class PairTest {
     /**
      * Unit test the Pair's GetFirst() function
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     @Test
     public void testSetSecond()

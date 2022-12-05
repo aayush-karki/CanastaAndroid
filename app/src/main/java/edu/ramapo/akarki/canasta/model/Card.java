@@ -63,9 +63,9 @@ public class Card implements Comparable<Card> {
 	/**
 	 * default Contructor for Card Class.
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	public Card()
 	{
@@ -81,7 +81,7 @@ public class Card implements Comparable<Card> {
 	 * @param aRank, a character. It holds the rank of the card
 	 * @param aSuit, a character. It holds the suit of the card
 	 * 
-	 * @return none
+	 
 	 */
 	public Card(String aRank, String aSuit)
 	{
@@ -150,7 +150,7 @@ public class Card implements Comparable<Card> {
 	 * @param aRankSuit, a const string. It holds the rank as the 0th character
 	 *                       and suit as the 1th character
 	 * 
-	 * @return none
+	 
 	 */
 	public Card(String aRankSuit)
 	{
@@ -162,7 +162,7 @@ public class Card implements Comparable<Card> {
 	 * 
 	 * @param aOtherCard, card to copy from
 	 * 
-	 * @return none
+	 
 	 */
 	public Card(Card aOtherCard)
 	{
@@ -172,7 +172,7 @@ public class Card implements Comparable<Card> {
 	/**
 	 * toString funciton
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return rankSuit
 	 */
@@ -185,7 +185,7 @@ public class Card implements Comparable<Card> {
 	/**
 	 * Overriding the hashcode method of the Object Class
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return int, the hascode for the object
 	 */
@@ -333,7 +333,7 @@ public class Card implements Comparable<Card> {
 	/**
 	 * Getter functions to get rank
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return aRankSuit, a const string. It holds the rank as the 0th character
 	 *         and suit as the 1th character
@@ -346,7 +346,7 @@ public class Card implements Comparable<Card> {
 	/**
 	 * Getter functions to get suit
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return aRankSuit, a const string. It holds the rank as the 0th character
 	 *         and suit as the 1th character
@@ -359,7 +359,7 @@ public class Card implements Comparable<Card> {
 	/**
 	 * Getter functions to get point
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return aRankSuit, a const string. It holds the rank as the 0th character
 	 *         and suit as the 1th character
@@ -372,7 +372,7 @@ public class Card implements Comparable<Card> {
 	/**
 	 * Getter functions to get card type
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return aRankSuit, a const string. It holds the rank as the 0th character
 	 *         and suit as the 1th character
@@ -385,7 +385,7 @@ public class Card implements Comparable<Card> {
 	/**
 	 * Getter function to get the rank and suit as string
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return aRankSuit, a const string. It holds the rank as the 0th character
 	 *         and suit as the 1th character

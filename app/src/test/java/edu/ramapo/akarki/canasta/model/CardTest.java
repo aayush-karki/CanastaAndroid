@@ -20,9 +20,9 @@ public class CardTest {
 	/**
 	 * Unit test the Card Constructor for illegal arguments
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testCardConstructorException()
@@ -33,9 +33,9 @@ public class CardTest {
 	/**
 	 * Unit test the Card Constructor for illegal arguments
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testCardCopyConstructor()
@@ -48,9 +48,9 @@ public class CardTest {
 	/**
 	 * Test the Card's toString()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testToString()
@@ -66,9 +66,9 @@ public class CardTest {
 	/**
 	 * Unit test the Card"s getCardType function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetCardType()
@@ -90,9 +90,9 @@ public class CardTest {
 	/**
 	 * Unit test the Card"s getPoint function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetPoint()
@@ -108,9 +108,9 @@ public class CardTest {
 	/**
 	 * Unit test the Card"s getRank function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetRank()
@@ -126,9 +126,9 @@ public class CardTest {
 	/**
 	 * Unit test the Card"s getSuit function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetSuit()
@@ -144,9 +144,9 @@ public class CardTest {
 	/**
 	 * Unit test the Card"s getRankSuit function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetRankSuit()
@@ -162,9 +162,9 @@ public class CardTest {
 	/**
 	 * Unit test the Card"s hascodes() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testCardHashCode()
@@ -180,9 +180,9 @@ public class CardTest {
 	/**
 	 * Unit test the Card"s equals() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testEqualsCards()
@@ -198,9 +198,9 @@ public class CardTest {
 	/**
 	 * Unit test the Card"s compareTo() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testCompareToCards()
@@ -224,9 +224,9 @@ public class CardTest {
 	/**
 	 * Test the Card's getAllCardInPrintedFormat()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetAllCardInPrintedFormat()
@@ -253,9 +253,9 @@ public class CardTest {
 	/**
 	 * Test the Card's hasTypeOfCard()
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testHasTypeOfCard()

@@ -16,9 +16,9 @@ public class FileAccessTest {
 	/**
 	 * Unit test the FileAccess's createFile() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testCreateFile()
@@ -31,9 +31,9 @@ public class FileAccessTest {
 	/**
 	 * Unit test the FileAccess's getAPathFromStr() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testOpenFile()
@@ -45,9 +45,9 @@ public class FileAccessTest {
 	/**
 	 * Unit test the FileAccess's readAllText() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testReadAllText()
@@ -67,9 +67,9 @@ public class FileAccessTest {
 	/**
 	 * Unit test the FileAccess's writeAllText() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testWriteAllText()
@@ -89,9 +89,9 @@ public class FileAccessTest {
 	/**
 	 * Unit test the FileAccess's getAPathFromStr() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetAPathFromStr()

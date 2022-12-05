@@ -1,8 +1,5 @@
 package edu.ramapo.akarki.canasta.controller;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,17 +16,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Vector;
 
 import edu.ramapo.akarki.canasta.R;
-
-import edu.ramapo.akarki.canasta.databinding.FragmentCreateLoadBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,9 +34,13 @@ public class CreateLoadFragment<FragmentCreateLoadBinding> extends Fragment {
 
     FragmentCreateLoadBinding binding;
 
+    // holds the absolute path to the data folder
+    String mDataFolderPath;
+
     // holds the list of filename
     private final ArrayList<String> mFilenameList = new ArrayList<String>();
 
+    // is true if this is create new game
     boolean mIsCreateNewGame;
 
     private RecyclerView mFilenameRecyclerView;
@@ -80,11 +78,15 @@ public class CreateLoadFragment<FragmentCreateLoadBinding> extends Fragment {
             mIsCreateNewGame = getArguments().getBoolean("isCreateNewGame");
         }
 
-        // TODO: delete  me and get the list of filename
-        // Put initial data into the word list.
-        for (int i = 0; i < 20; i++) {
-            mFilenameList.add("Word " + i);
+        mDataFolderPath = getActivity().getExternalFilesDir(null).getAbsolutePath() + "/data";
+
+        // creating the data folder if it does not exist
+        File cwd = new File(mDataFolderPath);
+        if (!cwd.exists()) {
+            cwd.mkdirs();
         }
+
+        populateFileList();
     }
 
     @Override
@@ -94,7 +96,7 @@ public class CreateLoadFragment<FragmentCreateLoadBinding> extends Fragment {
         View creatLoadView = inflater.inflate(R.layout.fragment_create_load, container, false);
 
         // geting all the view and saving them
-        initializeView(creatLoadView);
+        initizieView(creatLoadView);
 
         // retriving the data indicating whether the new game was pressed or not
         mIsCreateNewGame = CreateLoadFragmentArgs.fromBundle(getArguments()).getANewGamePressed();
@@ -104,15 +106,11 @@ public class CreateLoadFragment<FragmentCreateLoadBinding> extends Fragment {
         mUserInputTxt = creatLoadView.findViewById(R.id.userInputTxtFeild);
 
         // if the create new game is true then set the text to that
-        if(mIsCreateNewGame)
-        {
+        if (mIsCreateNewGame) {
             mCreatLoadBtn.setText(R.string.createBtnStr);
-        }
-        else
-        {
+        } else {
             mCreatLoadBtn.setText(R.string.loadBtnStr);
         }
-
 
         // returning the Inflated layout for this fragment
         return creatLoadView;
@@ -123,12 +121,12 @@ public class CreateLoadFragment<FragmentCreateLoadBinding> extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // TODO: this does not work currently
-        populateFileList();
 
         // Get a handle to the RecyclerView.
         mFilenameRecyclerView = view.findViewById(R.id.filenameRecyclerView);
         // Create an adapter and supply the data to be displayed.
-        mFilenamelistAdapter = new FilenameListAdaptor(requireActivity(), mFilenameList);
+        mFilenamelistAdapter = new FilenameListAdaptor(requireActivity(), mFilenameList,
+                mIsCreateNewGame, mUserInputTxt);
         // Connect the adapter with the RecyclerView.
         mFilenameRecyclerView.setAdapter(mFilenamelistAdapter);
         // Give the RecyclerView a default layout manager.
@@ -146,63 +144,97 @@ public class CreateLoadFragment<FragmentCreateLoadBinding> extends Fragment {
             public void onClick(View view) {
 
                 // checking if the input field is empty then do nothing
-                String userFile =  mUserInputTxt.getText().toString().trim();
-                if(userFile.isEmpty())
-                {
-                    Toast emptyText = Toast.makeText(getActivity(), "enter a file name", Toast.LENGTH_SHORT);
-                    emptyText.show();
+                String userFile = String.valueOf(mUserInputTxt.getText()).trim();
+                if (userFile.isEmpty()) {
+                    createToast("Please entry a file name...");
                     return;
                 }
 
-                // checking if this button is the create new or laod button
-                boolean isNewBtn = mCreatLoadBtn.getText().toString() != getResources().getString(R.string.createBtnStr);
+                // on new game-> checking if file exist and only allow new file name
+                // on laod button press , check if the file exist
+                boolean fileExists = false;
+                userFile = getTxtFile(userFile);
+                for (String fileName : mFilenameList) {
+                    if (userFile.equals(fileName)) {
+                        if (mIsCreateNewGame) {
+                            createToast("Please entry a unique file name...");
+                            return;
+                        } else {
+                            fileExists = true;
+                        }
+                    }
+                }
 
-                // TODO: if it was laod button, check if the file exist
-                // TODO: if it was new button, check if file exist and only allow new file name
+                if(!mIsCreateNewGame && !fileExists  )
+                {
+                    createToast("Entered file does not exist");
+                    mUserInputTxt.setText("");
+                    return;
+                }
 
-                NavHostFragment.findNavController(CreateLoadFragment.this).navigate(CreateLoadFragmentDirections.actionCreateLoadFragmentToRoundFragment(isNewBtn,userFile));
+
+                StringBuilder filePath = new StringBuilder(mDataFolderPath);
+                filePath.append("/");
+                filePath.append(getTxtFile(userFile));
+
+                NavHostFragment.findNavController(CreateLoadFragment.this)
+                        .navigate(CreateLoadFragmentDirections
+                                .actionCreateLoadFragmentToRoundFragment(mIsCreateNewGame, filePath.toString()));
             }
         });
-
     }
 
     /**
      * Populates the file List vector
      */
-    void populateFileList()
-    {
-        // emulated download storage
-        String file_directory = Environment.getExternalStorageDirectory().getAbsolutePath()+"/Download";
-        Log.i("fileDirec",file_directory);
+    void populateFileList() {
+        File folder = new File(mDataFolderPath);
 
-        File directory = new File(file_directory);
-        final File[] files_list = directory.listFiles();
+        // lsiting all the files
+        File[] files = folder.listFiles();
+        Log.i("filesDir", folder.getAbsolutePath());
 
-        Integer count = files_list.length;
-        Log.i("filelist",count.toString());
-
-
-        Vector<String> files_name = new Vector<>(files_list.length);
-
-        //getting the names of the file and add them to the list of files_name if the file's extension is .txt
-        for (File file : files_list) {
-            ++count;
-            String file_name = file.getName();
-            if (file_name.endsWith(".txt")){
-                files_name.add(file_name);
-                Log.i("Populate",file_name);
+        for (File file : files) {
+            String fileName = file.getName();
+            if (fileName.endsWith(".txt")) {
+                mFilenameList.add(fileName);
             }
         }
-
-
     }
 
     /**
      * saving the view on this fragments
      */
-    private void initializeView(View view){
+    private void initizieView(View view) {
         mCreatLoadBtn = view.findViewById(R.id.createNewBtn);
         mUserInputTxt = view.findViewById(R.id.userInputTxtFeild);
     }
+
+    /**
+     * Creates a toas to display a message for short time
+     *
+     * @param message string message to show in the toast
+     */
+    void createToast(String message) {
+        Toast emptyText = Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT);
+        emptyText.show();
+    }
+
+    /**
+     * Converts the string to have .txt at the end
+     * @param aFilename
+     * @return
+     */
+    String getTxtFile(String aFilename)
+    {
+        if (aFilename.endsWith(".txt")) {
+           return aFilename;
+        }
+        StringBuilder filePath = new StringBuilder(aFilename);
+        filePath.append(".txt");
+        return filePath.toString();
+    }
+
+
 
 }

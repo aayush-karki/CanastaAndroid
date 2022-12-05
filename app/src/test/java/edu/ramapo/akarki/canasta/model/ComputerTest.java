@@ -20,9 +20,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's defulat contructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void computerWithParamDefaultContructor()
@@ -34,9 +34,9 @@ public class ComputerTest {
 	/**
 	 * Test function to test the computer's constructor for exception.
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 * 
 	 * @throws ImproperMeldException this is when the meld has a card that is
 	 *                                   not valid
@@ -59,9 +59,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's contructor with param
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void computerWithParamContructorWithParam()
@@ -129,9 +129,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's copy contructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void computerWithParamCopyContructor()
@@ -154,9 +154,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's beforeTurnStartControl() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testBeforeTurnStartControl()
@@ -170,9 +170,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's turnStartHelp() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testTurnStartHelp()
@@ -183,9 +183,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's turnContinueHelp() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testTurnContinueHelp()
@@ -196,9 +196,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's canMeldCardFromHand() function for valid result
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testValidCanMeldCardFromHand()
@@ -229,9 +229,9 @@ public class ComputerTest {
 	 * Unit test the Computer's canMeldCardFromHand() function for invalid
 	 * result
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testInValidCanMeldCardFromHand()
@@ -259,9 +259,9 @@ public class ComputerTest {
 	 * Unit test the Computer's canMakeNewMeld() function when there are 3
 	 * natural card of same rank
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testCanMakeNewMeld3Card()
@@ -293,9 +293,9 @@ public class ComputerTest {
 	 * Unit test the Computer's canMakeNewMeld() function when there are 2
 	 * natural card of same rank and 1 wild card
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testCanMakeNewMeld2Card1WD()
@@ -325,9 +325,9 @@ public class ComputerTest {
 	 * Unit test the Computer's canMakeNewMeld() function when there is no valid
 	 * make new meld
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testInvalidCanMakeNewMeld()
@@ -353,9 +353,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's getMeldWithExtraWC() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetMeldWithExtraWC()
@@ -381,9 +381,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's getMeldWithExtraWC() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testinvalidGetMeldWithExtraWC()
@@ -409,9 +409,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's addWCToLargestPossibleMeld() function valid test
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testAddWCToLargestPossibleMeld()
@@ -442,9 +442,9 @@ public class ComputerTest {
 	 * Unit test the Computer's addWCToLargestPossibleMeld() function invalid
 	 * test
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testinvalidAddWCToLargestPossibleMeld()
@@ -472,9 +472,9 @@ public class ComputerTest {
 	 * Unit test the Computer's discardLogic() function to see it suggests to
 	 * throw the only card at hand
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testDiscardLoigcGoOutOnlyCard()
@@ -507,9 +507,9 @@ public class ComputerTest {
 	 * Unit test the Computer's discardLogic() function to see it suggests to
 	 * throw when there are 2 or more card in the hand
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testDiscardLoigcGoOut()
@@ -554,9 +554,9 @@ public class ComputerTest {
 	 * Unit test the Computer's discardLogic() function to see it suggest to
 	 * discard black three when the discard pile is frozen
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testDiscardLoigcBlack3()
@@ -590,9 +590,9 @@ public class ComputerTest {
 	/**
 	 * Unit test the Computer's emptyHandDiscardLogic() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 * 
 	 * @throws ImproperMeldException
 	 */

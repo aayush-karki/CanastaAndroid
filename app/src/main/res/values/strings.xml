@@ -47,5 +47,9 @@
     <string name="takeoutBtnStr">takeout</string>
     <string name="meldBtnStr">Meld</string>
     <string name="continueBtnStr">Continue</string>
+    <string name="drawBtnStr">Draw</string>
+    <string name="pickupBtnStr">Pickup</string>
+    <string name="saveBtnStr">Save</string>
+    <string name="helpBtnStr">Help</string>
 
 </resources>

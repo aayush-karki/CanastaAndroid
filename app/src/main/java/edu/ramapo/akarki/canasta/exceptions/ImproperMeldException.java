@@ -4,9 +4,9 @@ public class ImproperMeldException extends Exception {
     /**
      * default constructor
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     public ImproperMeldException(String str)
     {

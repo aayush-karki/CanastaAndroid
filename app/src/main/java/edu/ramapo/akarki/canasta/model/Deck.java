@@ -17,9 +17,9 @@ public class Deck {
 	/**
 	 * default constructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	public Deck()
 	{
@@ -59,7 +59,7 @@ public class Deck {
 	 * @param aStock aStock, a string containing the rank and suit of cards in
 	 *                   the m_stock. Each card is seperated by blank space
 	 * 
-	 * @return none
+	 
 	 */
 	public Deck(String aStock)
 	{
@@ -99,7 +99,7 @@ public class Deck {
 	 * @param aOtherDeck object of Deck class. It holds the Deck object to be
 	 *                       copied. Return Value: none
 	 * 
-	 * @return none
+	 
 	 */
 	public Deck(Deck aOtherDeck)
 	{
@@ -109,7 +109,7 @@ public class Deck {
 	/**
 	 * toString funciton
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return all the card's rankSuit that are still in stock in the printed
 	 *         format
@@ -123,7 +123,7 @@ public class Deck {
 	/**
 	 * getter functions to get the stock
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return Vector of cards, holds all the cards still in stock
 	 */
@@ -135,7 +135,7 @@ public class Deck {
 	/**
 	 * getter functions to get the dealt cards
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return Vector of cards, holds all the cards are already dealt
 	 */
@@ -147,7 +147,7 @@ public class Deck {
 	/**
 	 * Getter function to get the stock in the string format
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return string, containing the rank and suit of cards which represents
 	 *         stock in the deck. Each card is seperated by blank space. And the
@@ -162,7 +162,7 @@ public class Deck {
 	/**
 	 * returns true if m_stock is empty
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return true if m_stock is empty
 	 */
@@ -174,7 +174,7 @@ public class Deck {
 	/**
 	 * to return a card from m_stock and move it from m_stock to m_dealt
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return a Card that was in the end of m_stock, returns by value
 	 * 
@@ -194,7 +194,7 @@ public class Deck {
 	/**
 	 * To randomly shuffle the order of cards in m_stock
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return true to indicate successful shuffel
 	 */
@@ -210,7 +210,7 @@ public class Deck {
 	/**
 	 * To move all the card in m_dealt to m_stock
 	 * 
-	 * @param none
+	 
 	 * 
 	 * @return true to indicate successful deck consodilatiion
 	 */

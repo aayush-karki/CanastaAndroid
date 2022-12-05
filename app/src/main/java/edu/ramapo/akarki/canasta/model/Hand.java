@@ -21,9 +21,9 @@ public class Hand {
     /**
      * default constructor
      * 
-     * @param none
+     
      * 
-     * @return none
+     
      */
     public Hand()
     {
@@ -42,7 +42,7 @@ public class Hand {
      *                        m_stock. Each card is seperated by blank space and
      *                        each meld is inside '[' and ']'
      * 
-     * @return none
+     
      * 
      * @throws ImproperMeldException When the meld containing a invalid card is
      *                                   passed
@@ -69,7 +69,7 @@ public class Hand {
      *
      * @param aOtherCard, card to copy from
      *
-     * @return none
+     
      */
     public Hand(Hand aOtherhHand)
     {
@@ -87,7 +87,7 @@ public class Hand {
     /**
      * toString funciton
      * 
-     * @param none
+     
      * 
      * @return card in the hand in the printed format
      */
@@ -107,7 +107,7 @@ public class Hand {
     /**
      * getter function get if the hand has a canasta or not
      * 
-     * @param none
+     
      * 
      * @return boolean, value holded by mHasCanasta
      */
@@ -120,7 +120,7 @@ public class Hand {
      * getter function to get the cards of in the hand, it has actual hand at
      * first index and everthing else is in a meld
      * 
-     * @param none
+     
      * 
      * @return vector of vector of card, it has actual hand at first index and
      *         everthing else is in a meld
@@ -133,7 +133,7 @@ public class Hand {
     /**
      * getter function to get the cards in a meld
      * 
-     * @param none
+     
      * 
      * @return vector of vector of card, it holds all the cards in the hand
      *         except the actual hand
@@ -154,7 +154,7 @@ public class Hand {
     /**
      * getter function get the number of melds
      * 
-     * @param none
+     
      * 
      * @return Integer, holds the number of meld in the hand
      */
@@ -167,7 +167,7 @@ public class Hand {
      * getter function get the number cards in the actual hand--vector at index
      * 0
      * 
-     * @param none
+     
      * 
      * @return Integer, holds the number of meld in the hand
      */
@@ -194,7 +194,7 @@ public class Hand {
     /**
      * Getter function to get the actual hand--that is card that
      * 
-     * @param none
+     
      * 
      * @return Vector of card containing all the cards that are not in melds of
      *         the player hand
@@ -208,7 +208,7 @@ public class Hand {
      * Getter function to get actual hand--that is card that are not in
      * melds--where the all the ranks of the card are seperated into one vector.
      * 
-     * @param none
+     
      * 
      * @return Vector of Vector of Card where each Vector of Cards have the same
      *         ranks. All the ranks are in ascending order.
@@ -252,7 +252,7 @@ public class Hand {
      * Getter function to get the actual hand--that is card that are not in
      * melds in string format
      * 
-     * @param none
+     
      * 
      * @return string, containing the rank and suit of cards which represents
      *         player's actual hand. Each card is seperated by blank space. And
@@ -268,7 +268,7 @@ public class Hand {
      * Getter function to get the actual hand--that is card that are not in
      * melds in string format
      * 
-     * @param none
+     
      * 
      * @return string, containing all the cards that are in melds of the player
      *         hand in string format. it is stored as [rs] [rs] [rs rs rs]
@@ -605,7 +605,7 @@ public class Hand {
     /**
      * checks if the actual hand is empty
      * 
-     * @param none
+     
      * 
      * @return bolean, true if the actual hand is empty else false
      */
@@ -617,7 +617,7 @@ public class Hand {
     /**
      * checks if the actual hand has a wild card
      * 
-     * @param none
+     
      * 
      * @return true if the actual hand has a wildcard; else false
      */
@@ -937,7 +937,7 @@ public class Hand {
      * to check all the meld for a conasta and update the m_hasCanasta
      * accordingly
      * 
-     * @param none
+     
      * 
      * @return true if a changes was made t0 m_hasConasta; else false
      */
@@ -961,7 +961,7 @@ public class Hand {
     /**
      * checks if the meld is canasta -- i.e. has seven or more cards
      * 
-     * @param none
+     
      * 
      * @return true if the meld is a canasta
      */

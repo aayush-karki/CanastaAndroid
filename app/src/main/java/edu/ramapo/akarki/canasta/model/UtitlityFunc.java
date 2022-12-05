@@ -9,9 +9,9 @@ public class UtitlityFunc {
 	/**
 	 * Constructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	private UtitlityFunc()
 	{

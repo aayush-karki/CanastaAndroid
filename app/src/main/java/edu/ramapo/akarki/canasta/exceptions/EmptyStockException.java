@@ -4,9 +4,9 @@ public class EmptyStockException extends Exception {
 	/**
 	 * default constructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	public EmptyStockException(String str)
 	{

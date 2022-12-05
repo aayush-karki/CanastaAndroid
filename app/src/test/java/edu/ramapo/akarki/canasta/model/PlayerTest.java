@@ -22,9 +22,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's defulat contructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void playerWithParamDefaultContructor()
@@ -36,9 +36,9 @@ public class PlayerTest {
 	/**
 	 * Test function to test the player's constructor for exception.
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 * 
 	 * @throws ImproperMeldException this is when the meld has a card that is
 	 *                                   not valid
@@ -61,9 +61,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's contructor with param
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void playerWithParamContructorWithParam()
@@ -131,9 +131,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's copy contructor
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void playerWithParamCopyContructor()
@@ -157,9 +157,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's toString() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testToString()
@@ -185,9 +185,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's getTotalPoint() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetTotalPoint()
@@ -210,9 +210,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's getActualHand() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetActualHand()
@@ -233,9 +233,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's getMelds() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetMelds()
@@ -294,9 +294,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's getActualHandString() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetActualHandString()
@@ -312,9 +312,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's getMeldsString() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetMeldsString()
@@ -345,9 +345,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's getPlayerWentOutStatus() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetPlayerWentOutStatus()
@@ -358,9 +358,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's getTurnStartFlag() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetTurnStartFlag()
@@ -371,9 +371,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's addToTotalPoints() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testGetDividedAcualHandCardList()
@@ -395,9 +395,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's setPlayerWentOutStatus() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testSetPlayerWentOutStatus()
@@ -413,9 +413,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's setPlayerBeforeTurnMenuFlag() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testSetPlayerBeforeTurnMenuFlag()
@@ -430,9 +430,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's setTurnStartFlag() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testSetTurnStartFlag()
@@ -447,9 +447,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's beforeTurnStartControl() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testBeforeTurnStartControl()
@@ -508,9 +508,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's turnStartControl() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 
 	@Test
@@ -573,9 +573,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's turnContinueControl() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 * 
 	 * @throws ImproperMeldException
 	 */
@@ -887,9 +887,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's addToTotalPoints() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testAddToTotalPoints()
@@ -902,9 +902,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's tallyHandPoint() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testTallyHandPoint()
@@ -932,9 +932,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's addCardToHand() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testAddCardToHand()
@@ -949,9 +949,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's addToMeld() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testAddToMeld()
@@ -980,9 +980,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's canAddToMeld() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testCanAddToMeld()
@@ -1018,9 +1018,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's makeNewMeld() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testMakeNewMeld()
@@ -1110,9 +1110,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's takeOutWildCard() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testTakeOutWildCard()
@@ -1153,9 +1153,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's discard() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testDiscard()
@@ -1175,9 +1175,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's pickUpDiscardPile() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testPickUpDiscardPile()
@@ -1209,9 +1209,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's canPickUpDiscardPile() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testCanPickUpDiscardPile()
@@ -1246,9 +1246,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's canGoOut() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testCanGoOut()
@@ -1281,9 +1281,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's emptyHand() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testEmptyHand()
@@ -1303,9 +1303,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's resetPlayerForNewRound() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testResetPlayerForNewRound()
@@ -1330,9 +1330,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's validateCardIdx() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testValidateCardIdx()
@@ -1371,9 +1371,9 @@ public class PlayerTest {
 	/**
 	 * Unit test the Player's validateCardIdx() function
 	 * 
-	 * @param none
+	 
 	 * 
-	 * @return none
+	 
 	 */
 	@Test
 	public void testValidateMeldIdx()

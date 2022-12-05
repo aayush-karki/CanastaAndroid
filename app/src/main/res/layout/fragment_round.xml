@@ -21,6 +21,62 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="74dp"
+        android:layout_height="51dp"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="@string/saveBtnStr"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/topGuide"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide" />
+
+    <Button
+        android:id="@+id/helpBtn"
+        android:layout_width="90dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="@string/helpBtnStr"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/saveBtn"
+        app:layout_constraintEnd_toStartOf="@+id/saveBtn"
+        app:layout_constraintTop_toTopOf="@+id/saveBtn"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <Button
+        android:id="@+id/logBtn"
+        android:layout_width="82dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="log"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/topGuide"
+        app:layout_constraintStart_toEndOf="@+id/mainMenuBtn"
+        app:layout_constraintTop_toTopOf="@+id/helpBtn" />
+
+    <Button
+        android:id="@+id/mainMenuBtn"
+        android:layout_width="86dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="@string/mainMenuFragLabel"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/topGuide"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toTopOf="@+id/logBtn" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/saveHelpGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="saveBtn,helpBtn" />
+
     <LinearLayout
         android:id="@+id/roundNumGroup"
         android:layout_width="wrap_content"
@@ -35,13 +91,13 @@
             android:id="@+id/RoundLabelTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:labelFor="@id/RoundNumTxt"
+            android:labelFor="@id/roundNumTxt"
             android:text="@string/roundLabelStr"
             android:textColor="@color/app_primary_accent"
             android:textSize="26sp" />
 
         <TextView
-            android:id="@+id/RoundNumTxt"
+            android:id="@+id/roundNumTxt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
@@ -55,56 +111,60 @@
     <ImageView
         android:id="@+id/computerIcon"
         android:layout_width="54dp"
-
         android:layout_height="35dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/player_background_accent"
         android:contentDescription="@string/computerIconDescriptionStr"
         android:padding="2dp"
         android:src="@drawable/ic_computer_accent"
+        app:layout_constraintBottom_toBottomOf="@+id/roundNumGroup"
         app:layout_constraintEnd_toStartOf="@+id/roundNumGroup"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/leftGuide"
-        app:layout_constraintTop_toTopOf="@+id/topGuide" />
+        app:layout_constraintTop_toBottomOf="@+id/roundNumGroup"
+        app:tint="@color/app_text_primary_light" />
 
     <TextView
         android:id="@+id/compScoreNumTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="@string/compScoreNumStr"
         android:textColor="@color/app_text_primary_light"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/roundNumGroup"
-        app:layout_constraintStart_toStartOf="@+id/leftGuide"
-        app:layout_constraintTop_toBottomOf="@+id/computerIcon" />
+        app:layout_constraintBottom_toBottomOf="@+id/computerIcon"
+        app:layout_constraintStart_toEndOf="@+id/computerIcon"
+        app:layout_constraintTop_toTopOf="@+id/computerIcon"
+        app:layout_constraintVertical_bias="0.52" />
 
     <ImageView
         android:id="@+id/humanIcon"
         android:layout_width="54dp"
         android:layout_height="35dp"
-        android:layout_marginTop="16dp"
         android:contentDescription="@string/humanIconDescriptionStr"
         android:padding="2dp"
         android:src="@drawable/ic_human_accent"
+        app:layout_constraintBottom_toBottomOf="@+id/roundNumGroup"
         app:layout_constraintEnd_toStartOf="@+id/rightGuide"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toEndOf="@+id/roundNumGroup"
-        app:layout_constraintTop_toTopOf="@+id/topGuide" />
-
-    <TextView
-        android:id="@+id/humanScoreNumTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/compScoreNumStr"
-        android:textColor="@color/app_text_primary_light"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-        app:layout_constraintStart_toEndOf="@+id/roundNumGroup"
-        app:layout_constraintTop_toBottomOf="@+id/humanIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/roundNumGroup"
+        app:tint="@color/app_text_primary_light" />
 
 
     <!-- ===================== computer's detail ====================== -->
 
     <!-- ===================== computer hand ====================== -->
+
+    <TextView
+        android:id="@+id/humanScoreNumTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:text="@string/compScoreNumStr"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/humanIcon"
+        app:layout_constraintStart_toEndOf="@+id/humanIcon"
+        app:layout_constraintTop_toTopOf="@+id/humanIcon" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/compHandCardRecyclerView"
@@ -140,11 +200,11 @@
         android:layout_width="77dp"
         android:layout_height="68dp"
         android:layout_marginTop="108dp"
-        android:src="@drawable/ic_computer_light"
         android:contentDescription="@string/computerIconDescriptionStr"
+        android:src="@drawable/ic_computer_light"
         app:layout_constraintStart_toStartOf="@+id/leftGuide"
         app:layout_constraintTop_toTopOf="@+id/compHandTopGuide"
-        app:tint="@color/app_primary_accent"/>
+        app:tint="@color/app_text_primary_light" />
 
     <!-- ===================== computer melds ====================== -->
 
@@ -217,7 +277,7 @@
         app:layout_constraintTop_toBottomOf="@+id/compMeldDetailTxt" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/meldDetailGroup"
+        android:id="@+id/compMeldDetailGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="compMeldDetailTxt,compMeldDetailRecyclerView" />
@@ -381,8 +441,8 @@
         android:layout_width="77dp"
         android:layout_height="68dp"
         android:layout_marginBottom="108dp"
-        android:src="@drawable/ic_human_light"
         android:contentDescription="@string/computerIconDescriptionStr"
+        android:src="@drawable/ic_human_light"
         app:layout_constraintBottom_toTopOf="@+id/btnTopGuide"
         app:layout_constraintEnd_toStartOf="@+id/rightGuide" />
 
@@ -415,8 +475,6 @@
         app:layout_constraintTop_toBottomOf="@+id/humanHandlabelTxt"
         app:layout_constraintVertical_bias="0.0" />
 
-    <!-- ===================== guidelines ====================== -->
-
     <Button
         android:id="@+id/discardBtn"
         android:layout_width="wrap_content"
@@ -426,8 +484,6 @@
         android:textColor="@color/app_text_primary_light"
         app:layout_constraintBottom_toTopOf="@+id/roundBtmGuide"
         app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/takeOutBtn"
         app:layout_constraintTop_toTopOf="@+id/btnTopGuide"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -439,8 +495,6 @@
         android:text="@string/takeoutBtnStr"
         android:textColor="@color/app_text_primary_light"
         app:layout_constraintBottom_toBottomOf="@+id/discardBtn"
-        app:layout_constraintEnd_toStartOf="@+id/meldBtn"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/leftGuide"
         app:layout_constraintTop_toTopOf="@+id/discardBtn"
         app:layout_constraintVertical_bias="0.0" />
@@ -449,20 +503,34 @@
         android:id="@+id/meldBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
         android:backgroundTint="@color/app_primary_accent"
         android:text="@string/meldBtnStr"
         android:textColor="@color/app_text_primary_light"
         app:layout_constraintBottom_toBottomOf="@+id/discardBtn"
-        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintEnd_toStartOf="@+id/discardBtn"
         app:layout_constraintTop_toTopOf="@+id/discardBtn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.24000001" />
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/humanButtonGroup"
+    <Button
+        android:id="@+id/gooutBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="discardBtn,takeOutBtn,meldBtn" />
+        android:layout_marginStart="1dp"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="Go out"
+        android:textColor="@color/app_text_primary_light"
+        app:layout_constraintBottom_toBottomOf="@+id/discardBtn"
+        app:layout_constraintEnd_toStartOf="@+id/meldBtn"
+        app:layout_constraintStart_toEndOf="@+id/takeOutBtn"
+        app:layout_constraintTop_toTopOf="@+id/discardBtn"
+        app:layout_constraintVertical_bias="0.24000001" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/humanContinuRoundBtnGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="discardBtn,takeOutBtn,meldBtn,gooutBtn" />
 
     <Button
         android:id="@+id/continueBtn"
@@ -479,6 +547,35 @@
         app:layout_constraintTop_toTopOf="@+id/btnTopGuide"
         app:layout_constraintVertical_bias="1.0" />
 
+
+    <Button
+        android:id="@+id/drawBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="@string/drawBtnStr"
+        android:textColor="@color/app_text_primary_light"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/roundBtmGuide"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintTop_toTopOf="@+id/btnTopGuide"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/pickupBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/app_primary_accent"
+        android:text="@string/pickupBtnStr"
+        android:textColor="@color/app_text_primary_light"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/roundBtmGuide"
+        app:layout_constraintEnd_toStartOf="@+id/drawBtn"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toTopOf="@+id/btnTopGuide"
+        app:layout_constraintVertical_bias="1.0" />
+
     <View
         android:id="@+id/btmRowBg"
         android:layout_width="0dp"
@@ -486,10 +583,10 @@
         android:background="@color/app_text_primary_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/humanHandCardRecyclerView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftGuide"
@@ -510,14 +607,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="0dp" />
+        app:layout_constraintGuide_begin="53dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/compHandTopGuide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="83dp" />
+        app:layout_constraintGuide_begin="111dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/btnTopGuide"
@@ -532,5 +629,24 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_end="16dp" />
+
+    <TextView
+        android:id="@+id/currPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Curr: Computer"
+        android:textColor="@color/app_text_primary_light"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/topRowBg"
+        app:layout_constraintEnd_toEndOf="@+id/roundNumGroup"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/roundNumGroup" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/drawPickupGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="drawBtn,pickupBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
