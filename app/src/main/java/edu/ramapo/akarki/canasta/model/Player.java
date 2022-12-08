@@ -698,23 +698,23 @@ public class Player {
 	public Pair<Boolean, String> addToMeld(Integer aHandCardIdx,
 			Integer aMeldIdx)
 	{
-		Card card = mPlayerHand.getCardAtIdx(0, aHandCardIdx);
+		Card card = mPlayerHand.getActualHand().get(aHandCardIdx);
+		int cardOrd = card.getCardType().ordinal();
+		Card card1 = mPlayerHand.getCardAtIdx(0, aHandCardIdx);
 
-		switch (card.getCardType())
+		switch (cardOrd)
 		{
-		case CARDTYPE_NATURAL:
+		case 0:
 		{
 			return mPlayerHand.addNaturalCardToMeld(aHandCardIdx, aMeldIdx);
 		}
-		case CARDTYPE_WILDCARD:
+		case 1:
 		{
 			return mPlayerHand.addWildCardToMeld(aHandCardIdx, aMeldIdx);
-
 		}
-		case CARDTYPE_BLACK_THREE:
+		case 2:
 		{
 			return new Pair<Boolean, String>(false, "Cannot meld a Black 3");
-
 		}
 		default:
 		{

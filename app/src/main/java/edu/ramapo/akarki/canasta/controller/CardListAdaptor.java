@@ -1,18 +1,19 @@
 package edu.ramapo.akarki.canasta.controller;
 
 import android.content.Context;
-import android.media.Image;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.LinkedList;
 import java.util.Vector;
 
 import edu.ramapo.akarki.canasta.R;
@@ -23,14 +24,19 @@ public class CardListAdaptor extends
 
     private final Vector<Card> mCardList;
     private LayoutInflater mInflater;
-    boolean mIsPlayer;
-    boolean mIsHuman;
-    boolean mIsHand;
-    final Vector<ImageView> mSelectedImageVewList;
-    final Vector<Integer> mSelectedPosList;
-    final Vector<CardListAdaptor.CardsViewHolder> mSelectedHolderList;
-    Context mContext;
-    boolean mSaveHolder;
+    final Vector<Integer> mSelectedCardPos;
+    final Vector<Card> mSelectedCard;
+
+    class CardsViewHolder extends RecyclerView.ViewHolder {
+        public final ImageView cardItemView;
+        public final CardListAdaptor mAdapter;
+
+        public CardsViewHolder(View itemView, CardListAdaptor aAdapter) {
+            super(itemView);
+            cardItemView = itemView.findViewById(R.id.cardItem);
+            this.mAdapter = aAdapter;
+        }
+    }
 
     /**
      * default for the Filename List Adaptor
@@ -39,22 +45,11 @@ public class CardListAdaptor extends
      * @param aCardList LinkedList<String>  list of file Names
      */
     public CardListAdaptor(Context aContext,
-                           Vector<Card> aCardList,
-                           boolean aisPlayer,
-                           boolean aIsHuman,
-                           boolean aIsHand,
-                           boolean aSaveHolder) {
+                           Vector<Card> aCardList) {
         mInflater = LayoutInflater.from(aContext);
         this.mCardList = aCardList;
-        mIsHand = aIsHand;
-        mIsHuman = aIsHuman;
-        mIsPlayer = aisPlayer;
-        mSelectedImageVewList = new Vector<ImageView>();
-        mSelectedPosList = new Vector<Integer>();
-        mContext = aContext;
-        mSaveHolder = aSaveHolder;
-        mSelectedHolderList = new Vector<CardListAdaptor.CardsViewHolder>();
-
+        mSelectedCardPos = new Vector<Integer>();
+        mSelectedCard = new Vector<Card>();
     }
 
     /**
@@ -79,74 +74,44 @@ public class CardListAdaptor extends
         Card mCurrent = mCardList.get(position);
         //  holder.cardItemView.setText(mCurrent.getRankSuit());
 
-        holder.cardItemView.setImageResource(convertRankSuitToID(mCurrent.getRankSuit()));
+        holder.cardItemView.setImageResource(getCardImage(mCurrent.getRankSuit()));
+        holder.cardItemView.setId(setCardId(mCurrent));
 
         holder.cardItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(!mIsHand && !mSaveHolder)
-                {
-                    return;
-                }
-
+                Card currCard = getCardFromId(view.getId());
+                int pos = holder.getAdapterPosition();
                 //chekcing if the view is in the selected list deselect it
-                if (mSelectedImageVewList.contains(view)) {
-                    mSelectedImageVewList.removeElement(view);
-                    mSelectedPosList.removeElement(holder.getLayoutPosition());
-                    unhighlightView(holder);
-                    return;
+
+                if (mSelectedCardPos.contains(holder.getAdapterPosition())) {
+//                    holder.cardItemView.setColorFilter(Color.TRANSPARENT);
+                    holder.cardItemView.setY(0);
+                    mSelectedCardPos.removeElement(holder.getAdapterPosition());
+                    mSelectedCard.removeElement(mCardList.get(holder.getAdapterPosition()));
                 }
+                else
+                {
+                    // hightlighting it
+//                    holder.cardItemView.setColorFilter(Color.argb(200,163, 209, 224));
+                    holder.cardItemView.setY(-20);
+                    mSelectedCardPos.add(holder.getAdapterPosition());
+                    mSelectedCard.add(mCardList.get(holder.getAdapterPosition()));
 
-                // Use that to access the affected item in mWordList.
-
-                // if this is not a player's item do nothing
-                if (!mIsPlayer) {
-                    return;
                 }
-
-
-                // if it is not a hand or a human clear the selected list and select it
-                if (!mIsHuman || !mIsHand) {
-                    unSelectAll();
-                }
-
-                // hightlighting it
-                mSelectedPosList.add(holder.getLayoutPosition());
-                mSelectedImageVewList.add(  holder.cardItemView);
-                mSelectedHolderList.add(holder);
-                highlightView(holder);
 
                 // Notify the adapter that the data has changed so it can
                 // update the RecyclerView to display the data.
-                holder.mAdapter.notifyDataSetChanged();
+                holder.mAdapter.notifyItemChanged(holder.getAdapterPosition());
+                holder.mAdapter.notifyItemChanged(holder.getAdapterPosition());
+                holder.mAdapter.notifyItemChanged(holder.getAdapterPosition());
             }
         });
     }
 
-
-    private void highlightView(CardListAdaptor.CardsViewHolder holder) {
-        holder.itemView.setBackgroundColor(ContextCompat.getColor( holder.itemView.getContext(), R.color.app_primary_accent));
-    }
-
-    private void unhighlightView(CardListAdaptor.CardsViewHolder holder) {
-        holder.itemView.setBackgroundColor(ContextCompat.getColor( holder.itemView.getContext(), android.R.color.transparent));
-    }
-
-    public Vector<Integer> getSelectedPos()
-    {
-        return mSelectedPosList;
-    }
-
-    public void unSelectAll()
-    {
-        // deselect everything
-        for (CardListAdaptor.CardsViewHolder holder : mSelectedHolderList) {
-            unhighlightView(holder);
-        }
-        mSelectedImageVewList.clear();
-        mSelectedPosList.clear();
-        mSelectedHolderList.clear();
+    public Vector<Integer> getSelectedPos() {
+        return mSelectedCardPos;
     }
 
     @Override
@@ -154,17 +119,203 @@ public class CardListAdaptor extends
         return mCardList.size();
     }
 
-    class CardsViewHolder extends RecyclerView.ViewHolder {
-        public final ImageView cardItemView;
-        public final CardListAdaptor mAdapter;
+    int setCardId(Card aCard) {
+        StringBuilder cardId = new StringBuilder();
 
-        public CardsViewHolder(View itemView, CardListAdaptor aAdapter) {
-            super(itemView);
-            cardItemView = itemView.findViewById(R.id.cardItem);
-            this.mAdapter = aAdapter;
+        // converting the suit
+        switch (aCard.getSuit()) {
+            case "C": {
+                cardId.append("1");
+                break;
+            }
+            case "S": {
+                cardId.append("2");
+                break;
+            }
+            case "D": {
+                cardId.append("3");
+                break;
+            }
+            case "H": {
+                cardId.append("4");
+                break;
+            }
+            case "1": {
+                cardId.append("5");
+                break;
+            }
+            case "2": {
+                cardId.append("6");
+                break;
+            }
+            default: {
+                cardId.append("0");
+                break;
+            }
         }
+        Log.i("CardId", "Card: " + aCard.getRankSuit());
+        Log.i("CardId", "Card-suit: " + cardId.toString());
+
+        // converting the rank
+        switch (aCard.getRank()) {
+            case "2": {
+                cardId.append("02");
+                break;
+            }
+            case "3": {
+                cardId.append("03");
+                break;
+            }
+            case "4": {
+                cardId.append("04");
+                break;
+            }
+            case "5": {
+                cardId.append("05");
+                break;
+            }
+            case "6": {
+                cardId.append("06");
+                break;
+            }
+            case "7": {
+                cardId.append("07");
+                break;
+            }
+            case "8": {
+                cardId.append("08");
+                break;
+            }
+            case "9": {
+                cardId.append("09");
+                break;
+            }
+            case "X": {
+                cardId.append("10");
+                break;
+            }
+            case "J": {
+                cardId.append("11");
+                break;
+            }
+            case "Q": {
+                cardId.append("12");
+                break;
+            }
+            case "K": {
+                cardId.append("13");
+                break;
+            }
+            case "A": {
+                cardId.append("01");
+                break;
+            }
+            default: {
+                cardId.append("00");
+                break;
+            }
+        }
+
+        Log.i("CardId", "Card-suitRank: " + cardId.toString());
+
+        return Integer.parseInt(cardId.toString());
     }
 
+    Card getCardFromId(int aId) {
+        StringBuilder cardId = new StringBuilder();
+
+        switch (aId % 100) {
+            case 2: {
+                cardId.append("2");
+                break;
+            }
+            case 3: {
+                cardId.append("3");
+                break;
+            }
+            case 4: {
+                cardId.append("4");
+                break;
+            }
+            case 5: {
+                cardId.append("5");
+                break;
+            }
+            case 6: {
+                cardId.append("6");
+                break;
+            }
+            case 7: {
+                cardId.append("7");
+                break;
+            }
+            case 8: {
+                cardId.append("8");
+                break;
+            }
+            case 9: {
+                cardId.append("9");
+                break;
+            }
+            case 10: {
+                cardId.append("X");
+                break;
+            }
+            case 11: {
+                cardId.append("J");
+                break;
+            }
+            case 12: {
+                cardId.append("Q");
+                break;
+            }
+            case 13: {
+                cardId.append("K");
+                break;
+            }
+            case 1: {
+                cardId.append("A");
+                break;
+            }
+            default: {
+                cardId.append("");
+                break;
+            }
+        }
+
+        switch (aId / 100) {
+            case 1: {
+                cardId.append("C");
+                break;
+            }
+            case 2: {
+                cardId.append("S");
+                break;
+            }
+            case 3: {
+                cardId.append("D");
+                break;
+            }
+            case 4: {
+                cardId.append("H");
+                break;
+            }
+            case 5: {
+                cardId.append("1");
+                break;
+            }
+            case 6: {
+                cardId.append("2");
+                break;
+            }
+            default: {
+                cardId.append("0");
+                break;
+            }
+        }
+
+        return new Card(cardId.toString());
+    }
 
     /**
      * maps the rankSuit to its card file
@@ -172,7 +323,7 @@ public class CardListAdaptor extends
      * @param aRankSuit rank and suit of a card
      * @return resource Id of the card
      */
-    int convertRankSuitToID(String aRankSuit) {
+    int getCardImage(String aRankSuit) {
         switch (aRankSuit) {
             case "2C": {
                 return R.drawable.card_b_c2;

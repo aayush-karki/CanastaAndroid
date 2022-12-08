@@ -899,6 +899,8 @@ public class Round {
 
                 Message.addMessage(message.getSecond());
 
+                currPlayer.mWildCardInProcess = tempComp.mWildCardInProcess;
+
                 return false;
             }
             // Add a card in hand to meld
